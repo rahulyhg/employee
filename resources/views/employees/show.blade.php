@@ -9,6 +9,12 @@
 
                     <div class="panel-body">
                         <div class="employee">
+                            @if (!$employee->managers->isEmpty())
+                                <strong>Quản lý: </strong>
+                                @foreach($employee->managers as $index => $manager)
+                                    {{ $manager->name }},
+                                @endforeach
+                            @endif
                             <div>{{ $employee->name }}</div>
                             <div>{{ $employee->department->name }}</div>
                             <div>{{ $employee->email }}</div>
