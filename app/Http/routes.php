@@ -18,3 +18,23 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+/**
+ * Department
+ */
+Route::group(['prefix' => 'department'], function () {
+    Route::get('/', [
+        'as' => 'department.index',
+        'uses' => 'DepartmentController@index'
+    ]);
+});
+
+/**
+ * Employee
+ */
+Route::group(['prefix' => 'employee'], function () {
+    Route::get('/', [
+        'as' => 'employee.index',
+        'uses' => 'EmployeeController@index'
+    ]);
+});

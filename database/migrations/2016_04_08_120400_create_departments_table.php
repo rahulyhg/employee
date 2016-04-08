@@ -16,7 +16,7 @@ class CreateDepartmentsTable extends Migration
             $table->increments('id');
 
             $table->string('name');
-            $table->integer('manager_id');
+            $table->integer('manager_id')->default(0);
             $table->string('phone');
 
             $table->timestamps();
