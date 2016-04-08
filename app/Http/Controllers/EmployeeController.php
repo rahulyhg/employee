@@ -13,17 +13,18 @@ class EmployeeController extends Controller
     {
         $employees = Employee::all();
 
-        return response()->json($employees);
+        return view('employees.index')->with([
+            'employees' => $employees
+        ]);
     }
 
     public function show($id)
     {
         $id = intval($id);
         $employee = Employee::find($id);
-        $department = $employee->department->toArray();
 
-        dd($department);
-
-        return response()->json($employee);
+        return view('employees.show')->with([
+            'employee' => $employee
+        ]);
     }
 }
