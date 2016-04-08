@@ -7,6 +7,12 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Employees</div>
 
+                    <div class="add">
+                        @if(Auth::check())
+                            <a class="btn btn-primary" href="#">Add employee</a>
+                        @endif
+                    </div>
+
                     <div class="panel-body">
                         @foreach($employees as $index => $employee)
                             <div class="employee">
