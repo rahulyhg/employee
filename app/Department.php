@@ -14,4 +14,9 @@ class Department extends Model
     protected $fillable = [
         'name', 'manager_id', 'phone'
     ];
+
+    public function employees()
+    {
+        return $this->hasMany('App\Employee', 'department_id');
+    }
 }

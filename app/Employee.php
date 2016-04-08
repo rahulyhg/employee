@@ -14,4 +14,9 @@ class Employee extends Model
     protected $fillable = [
         'name', 'email', 'photo', 'phone', 'job', 'department_id'
     ];
+
+    public function department()
+    {
+        return $this->belongsTo('App\Department', 'department_id');
+    }
 }

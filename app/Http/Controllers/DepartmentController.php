@@ -15,4 +15,15 @@ class DepartmentController extends Controller
 
         return response()->json($departments);
     }
+
+    public function show($id)
+    {
+        $id = intval($id);
+        $department = Department::find($id);
+        $employees = $department->employees->toArray();
+
+        dd($employees);
+
+        return response()->json($employee);
+    }
 }

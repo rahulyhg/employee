@@ -15,4 +15,15 @@ class EmployeeController extends Controller
 
         return response()->json($employees);
     }
+
+    public function show($id)
+    {
+        $id = intval($id);
+        $employee = Employee::find($id);
+        $department = $employee->department->toArray();
+
+        dd($department);
+
+        return response()->json($employee);
+    }
 }

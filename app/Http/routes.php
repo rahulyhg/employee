@@ -27,6 +27,11 @@ Route::group(['prefix' => 'department'], function () {
         'as' => 'department.index',
         'uses' => 'DepartmentController@index'
     ]);
+
+    Route::get('/{id}', [
+        'as' => 'department.show',
+        'uses' => 'DepartmentController@show'
+    ]);
 });
 
 /**
@@ -36,5 +41,10 @@ Route::group(['prefix' => 'employee'], function () {
     Route::get('/', [
         'as' => 'employee.index',
         'uses' => 'EmployeeController@index'
+    ]);
+
+    Route::get('/{id}', [
+        'as' => 'employee.show',
+        'uses' => 'EmployeeController@show'
     ]);
 });
