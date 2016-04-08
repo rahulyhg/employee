@@ -13,17 +13,18 @@ class DepartmentController extends Controller
     {
         $departments = Department::all();
 
-        return response()->json($departments);
+        return view('departments.index')->with([
+            'departments' => $departments
+        ]);
     }
 
     public function show($id)
     {
         $id = intval($id);
         $department = Department::find($id);
-        $employees = $department->employees->toArray();
 
-        dd($employees);
-
-        return response()->json($employee);
+        return view('departments.show')->with([
+            'department' => $department
+        ]);
     }
 }
