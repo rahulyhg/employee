@@ -43,7 +43,7 @@ class EmployeeController extends Controller
         ]);
     }
 
-    public function addPath(Request $request)
+    public function addPost(Request $request)
     {
         $input = $request->only([
             'name',
@@ -54,5 +54,16 @@ class EmployeeController extends Controller
         ]);
 
 
+        $employee = Employee::create($input);
+        if (!$employee) {
+            $departments = Department::all();
+            return view('employees.add', [
+                'departments' => $departments
+            ])->withErrors([
+                'test' => 'Hello'
+            ]);
+        }
+
+        return redirect()->route('employee.show', $employee->id);
     }
 }

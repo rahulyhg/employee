@@ -1,4 +1,6 @@
-<form action="{{ route('employee.add') }}">
+<form action="{{ route('employee.add') }}" method="POST">
+    {{ csrf_field() }}
+
     <div class="form-group">
         <label for="name">Name</label>
         <input name="name" id="name" type="text" class="form-control" placeholder="Name">
@@ -26,5 +28,9 @@
                 <option value="{{ $department->id }}">{{ $department->name }}</option>
             @endforeach
         </select>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary" type="submit">Add new</button>
     </div>
 </form>
