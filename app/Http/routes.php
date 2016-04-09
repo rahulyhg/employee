@@ -61,3 +61,15 @@ Route::group(['prefix' => 'employee'], function () {
         'uses' => 'EmployeeController@show'
     ])->where('id', '[0-9]+');
 });
+
+/**
+ * Ajax
+ */
+Route::group(['prefix' => 'ajax'], function () {
+    Route::group(['prefix' => 'employee'], function () {
+        Route::post('add', [
+            'as' => 'ajax.employee.add',
+            'uses' => 'AjaxController@addEmployee',
+        ]);
+    });
+});

@@ -7,6 +7,7 @@ use App\Employee;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Validator;
 
 class EmployeeController extends Controller
 {
@@ -53,6 +54,15 @@ class EmployeeController extends Controller
             'department_id'
         ]);
 
+        $validator = Validator::make($input, [
+            'name' => 'required',
+            'phone' => 'required',
+            'job' => 'required',
+            'email' => 'required|email|unique:employees',
+            'department_id' => 'required',
+        ]);
+
+        dd($validator);
 
         $employee = Employee::create($input);
         if (!$employee) {

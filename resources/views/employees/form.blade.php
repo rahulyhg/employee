@@ -1,4 +1,4 @@
-<form action="{{ route('employee.add') }}" method="POST">
+<form action="{{ route('ajax.employee.add') }}" method="POST" class="form-employee">
     {{ csrf_field() }}
 
     <div class="form-group">
@@ -31,6 +31,6 @@
     </div>
 
     <div class="form-group">
-        <button class="btn btn-primary" type="submit">Add new</button>
+        <button class="btn btn-primary" type="submit" id="addEmployee">Add new</button>
     </div>
 </form>

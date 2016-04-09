@@ -15,3 +15,7 @@
         </div>
     </div>
 @endsection
+
+@section('body.scripts')
+    <script src="{{ asset('assets/js/form.js') }}"></script>
+@endsection
