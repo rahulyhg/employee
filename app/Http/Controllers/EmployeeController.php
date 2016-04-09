@@ -44,36 +44,16 @@ class EmployeeController extends Controller
         ]);
     }
 
-    public function addPost(Request $request)
+    public function editShow($id)
     {
-        $input = $request->only([
-            'name',
-            'email',
-            'phone',
-            'job',
-            'department_id'
+        $id = intval($id);
+        $employee = Employee::find($id);
+        $departments = Department::all();
+
+        return view('employees.edit', [
+            'employee' => $employee,
+            'departments' => $departments
         ]);
 
-        $validator = Validator::make($input, [
-            'name' => 'required',
-            'phone' => 'required',
-            'job' => 'required',
-            'email' => 'required|email|unique:employees',
-            'department_id' => 'required',
-        ]);
-
-        dd($validator);
-
-        $employee = Employee::create($input);
-        if (!$employee) {
-            $departments = Department::all();
-            return view('employees.add', [
-                'departments' => $departments
-            ])->withErrors([
-                'test' => 'Hello'
-            ]);
-        }
-
-        return redirect()->route('employee.show', $employee->id);
     }
 }

@@ -20,6 +20,8 @@
                             <div>{{ $employee->email }}</div>
                             <div>{{ $employee->phone }}</div>
                             <div>{{ $employee->job }}</div>
+
+                            <a href="{{ route('employee.edit', $employee->id) }}">Edit</a>
                         </div>
                     </div>
                 </div>
