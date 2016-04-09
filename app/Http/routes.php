@@ -43,17 +43,20 @@ Route::group(['prefix' => 'employee'], function () {
         'uses' => 'EmployeeController@index'
     ]);
 
-    Route::get('/{id}', [
+    /**
+     * Show
+     */
+    Route::get('{id}', [
         'as' => 'employee.show',
         'uses' => 'EmployeeController@show'
-    ]);
+    ])->where('id', '[0-9]+');
 
-    Route::get('/add', [
+    Route::get('add', [
         'as' => 'employee.add',
         'uses' => 'EmployeeController@addShow',
     ]);
 
-    Route::post('/add', [
+    Route::post('add', [
         'as' => 'employee.add',
         'uses' => 'EmployeeController@addPost',
     ]);
