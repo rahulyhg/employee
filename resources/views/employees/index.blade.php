@@ -9,7 +9,7 @@
 
                     <div class="add">
                         @if(Auth::check())
-                            <a class="btn btn-primary" href="#">Add employee</a>
+                            <a class="btn btn-primary" href="{{ route('employee.add') }}">Add employee</a>
                         @endif
                     </div>
 

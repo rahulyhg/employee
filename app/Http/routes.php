@@ -45,6 +45,11 @@ Route::group(['prefix' => 'employee'], function () {
 
     Route::get('/{id}', [
         'as' => 'employee.show',
-        'uses' => 'EmployeeController@show'
+        'uses' => 'EmployeeController@addShow'
+    ]);
+
+    Route::get('/add', [
+        'as' => 'employee.add',
+        'uses' => 'EmployeeController@addShow',
     ]);
 });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Department;
 use App\Employee;
 use Illuminate\Http\Request;
 
@@ -18,6 +19,12 @@ class EmployeeController extends Controller
         ]);
     }
 
+    /**
+     * Show employee details by id
+     *
+     * @param $id
+     * @return mixed
+     */
     public function show($id)
     {
         $id = intval($id);
@@ -26,5 +33,26 @@ class EmployeeController extends Controller
         return view('employees.show')->with([
             'employee' => $employee
         ]);
+    }
+
+    public function addShow()
+    {
+        $departments = Department::all();
+        return view('employees.add', [
+            'departments' => $departments
+        ]);
+    }
+
+    public function addPath(Request $request)
+    {
+        $input = $request->only([
+            'name',
+            'email',
+            'phone',
+            'job',
+            'department_id'
+        ]);
+
+
     }
 }
