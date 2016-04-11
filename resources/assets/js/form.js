@@ -1,4 +1,10 @@
 jQuery(document).ready(function ($) {
+    $('.form-group input').on('click', function (e) {
+        e.preventDefault();
+
+        $(this).parent().removeClass('has-errors');
+    });
+
     $('#addEmployee').on('click', function (e) {
         e.preventDefault();
 
@@ -14,7 +20,25 @@ jQuery(document).ready(function ($) {
             dataType: 'json',
             success: function success(res) {
                 if (!res.return) {
-                    alert('Not valid!');
+                    $('.form-group .errors').html('');
+                    $('.form-group').removeClass('has-errors');
+
+                    var errors = res.errors;
+                    var keys = Object.keys(errors);
+                    for (var i = 0; i < keys.length; i++) {
+
+                        var key = keys[i];
+                        var $container = $('.form-employee [data-input=' + key + ']');
+                        $container.addClass('has-errors');
+
+                        var $container_errors = $container.find('.errors');
+
+                        var arr = errors[key];
+                        for (var j = 0; j < arr.length; j++) {
+                            $container_errors.append(arr[j]);
+                            console.log(arr[j])
+                        }
+                    }
                 } else {
                     window.location.href = res.http_refer;
                 }
