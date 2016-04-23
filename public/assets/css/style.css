@@ -7868,6 +7868,9 @@ a {
     height: 1px;
     background-color: #308ed5; }
 
+.content {
+  margin-top: 50px; }
+
 .has-errors .form-control {
   border-color: red; }
 

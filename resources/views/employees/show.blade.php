@@ -16,7 +16,9 @@
                                 @endforeach
                             @endif
                             <div>{{ $employee->name }}</div>
-                            <div>{{ $employee->department->name }}</div>
+                            @if($employee->department)
+                                <div>{{ $employee->department->name }}</div>
+                            @endif
                             <div>{{ $employee->email }}</div>
                             <div>{{ $employee->phone }}</div>
                             <div>{{ $employee->job }}</div>

@@ -12,7 +12,7 @@
                     <div class="col-md-6 col-md-offset-3">
                         <div class="top text-center">
                             <h2 class="text-uppercase">Welcome to <strong>Fries Team</strong></h2>
-                            <p>You can search by Over 60,000 Employees and 250 Departments</p>
+                            <p>You can search by Over {{ $employees->count() }} Employees and {{ count($departments) }} Departments</p>
                         </div>
 
                         <div class="bottom">

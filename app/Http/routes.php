@@ -21,22 +21,27 @@ Route::auth();
 /**
  * Department
  */
-Route::group( [ 'prefix' => 'department' ], function () {
+Route::group( [ 'prefix' => 'departments' ], function () {
 	Route::get( '/', [
 		'as'   => 'department.index',
 		'uses' => 'DepartmentController@index'
 	] );
 
-	Route::get( '/{id}', [
+	Route::get( 'add', [
+		'as'   => 'department.add',
+		'uses' => 'DepartmentController@add',
+	] );
+
+	Route::get( '{id}', [
 		'as'   => 'department.show',
 		'uses' => 'DepartmentController@show'
-	] );
+	] )->where( 'id', '[0-9]+' );
 } );
 
 /**
  * Employee
  */
-Route::group( [ 'prefix' => 'employee' ], function () {
+Route::group( [ 'prefix' => 'employees' ], function () {
 	Route::get( '/', [
 		'as'   => 'employee.index',
 		'uses' => 'EmployeeController@index'
@@ -71,9 +76,21 @@ Route::group( [ 'prefix' => 'ajax' ], function () {
 			'uses' => 'AjaxController@addEmployee',
 		] );
 
-		Route::post( 'edit', [
+		Route::post( 'edit/{id}', [
 			'as'   => 'ajax.employee.edit',
 			'uses' => 'AjaxController@editEmployee',
+		] );
+	} );
+
+	Route::group( [ 'prefix' => 'department' ], function () {
+		Route::post( 'add', [
+			'as'   => 'ajax.department.add',
+			'uses' => 'AjaxController@addDepartment',
+		] );
+
+		Route::post( 'edit', [
+			'as'   => 'ajax.department.edit',
+			'uses' => 'AjaxController@editDepartment',
 		] );
 	} );
 } );

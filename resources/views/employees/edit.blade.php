@@ -8,7 +8,21 @@
                     <div class="panel-heading">Edit</div>
 
                     <div class="panel-body">
-                        @include('employees.edit-form')
+                        <?php
+                        $form = [
+                                'defaults' => [
+                                        'name'          => $employee->name,
+                                        'email'         => $employee->email,
+                                        'phone'         => $employee->phone,
+                                        'job'           => $employee->job,
+                                        'department_id' => $employee->department_id,
+                                ],
+                                'url'      => route( 'ajax.employee.edit', $employee->id ),
+                                'method'   => 'POST',
+                                'button'   => 'Update'
+                        ]
+                        ?>
+                        @include('employees.form')
                     </div>
                 </div>
             </div>

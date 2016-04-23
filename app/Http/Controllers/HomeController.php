@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Department;
+use App\Employee;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -23,9 +24,11 @@ class HomeController extends Controller {
 	 */
 	public function index() {
 		$departments = Department::all();
+		$employees   = Employee::all();
 
 		return view( 'welcome', [
-			'departments' => $departments
+			'departments' => $departments,
+			'employees'   => $employees
 		] );
 	}
 }
