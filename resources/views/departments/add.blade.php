@@ -9,7 +9,19 @@
                         <div class="panel-heading">Add new</div>
 
                         <div class="panel-body">
-                            @include('departments.add-form')
+                            <?php
+                            $form = [
+                                    'defaults' => [
+                                            'name'          => '',
+                                            'phone'         => '',
+                                            'manager_id' => '',
+                                    ],
+                                    'url'      => route( 'ajax.department.add' ),
+                                    'method'   => 'POST',
+                                    'button'   => 'Add new'
+                            ];
+                            ?>
+                            @include('departments.form')
                         </div>
                     </div>
                 </div>

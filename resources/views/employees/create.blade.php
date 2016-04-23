@@ -21,7 +21,7 @@
                                     'url'      => route( 'ajax.employee.add' ),
                                     'method'   => 'POST',
                                     'button'   => 'Add new'
-                            ]
+                            ];
                             ?>
                             @include('employees.form')
                         </div>
