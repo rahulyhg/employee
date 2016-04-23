@@ -12,18 +12,16 @@
                             <?php
                             $form = [
                                     'defaults' => [
-                                            'name'          => $employee->name,
-                                            'email'         => $employee->email,
-                                            'phone'         => $employee->phone,
-                                            'job'           => $employee->job,
-                                            'department_id' => $employee->department_id,
+                                            'name'          => $department->name,
+                                            'phone'         => $department->phone,
+                                            'manager_id' => $department->manager_id,
                                     ],
-                                    'url'      => route( 'ajax.employee.edit', $employee->id ),
+                                    'url'      => route( 'ajax.department.edit', $department->id ),
                                     'method'   => 'POST',
                                     'button'   => 'Update'
-                            ]
+                            ];
                             ?>
-                            @include('employees.form')
+                            @include('departments.form')
                         </div>
                     </div>
                 </div>

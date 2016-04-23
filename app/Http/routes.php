@@ -12,7 +12,7 @@
 */
 
 Route::get( '/', [
-	'as' => 'home',
+	'as'   => 'home',
 	'uses' => 'HomeController@index'
 ] );
 
@@ -28,13 +28,20 @@ Route::group( [ 'prefix' => 'departments' ], function () {
 	] );
 
 	Route::get( 'add', [
-		'as'   => 'department.add',
-		'uses' => 'DepartmentController@add',
+		'middleware' => 'auth',
+		'as'         => 'department.add',
+		'uses'       => 'DepartmentController@add',
 	] );
 
 	Route::get( '{id}', [
 		'as'   => 'department.show',
 		'uses' => 'DepartmentController@show'
+	] )->where( 'id', '[0-9]+' );
+
+	Route::get( 'edit/{id}', [
+		'middleware' => 'auth',
+		'as'   => 'department.edit',
+		'uses' => 'DepartmentController@edit'
 	] )->where( 'id', '[0-9]+' );
 } );
 
@@ -48,11 +55,13 @@ Route::group( [ 'prefix' => 'employees' ], function () {
 	] );
 
 	Route::get( 'add', [
+		'middleware' => 'auth',
 		'as'   => 'employee.add',
 		'uses' => 'EmployeeController@addShow',
 	] );
 
 	Route::get( 'edit/{id}', [
+		'middleware' => 'auth',
 		'as'   => 'employee.edit',
 		'uses' => 'EmployeeController@editShow',
 	] )->where( 'id', '[0-9]+' );
@@ -79,7 +88,7 @@ Route::group( [ 'prefix' => 'ajax' ], function () {
 		Route::post( 'edit/{id}', [
 			'as'   => 'ajax.employee.edit',
 			'uses' => 'AjaxController@editEmployee',
-		] );
+		] )->where( 'id', '[0-9]+' );
 	} );
 
 	Route::group( [ 'prefix' => 'department' ], function () {
@@ -88,9 +97,9 @@ Route::group( [ 'prefix' => 'ajax' ], function () {
 			'uses' => 'AjaxController@addDepartment',
 		] );
 
-		Route::post( 'edit', [
+		Route::post( 'edit/{id}', [
 			'as'   => 'ajax.department.edit',
 			'uses' => 'AjaxController@editDepartment',
-		] );
+		] )->where( 'id', '[0-9]+' );
 	} );
 } );

@@ -7,6 +7,7 @@ use App\Employee;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class EmployeeController extends Controller {
@@ -43,7 +44,6 @@ class EmployeeController extends Controller {
 	}
 
 	public function editShow( $id ) {
-		$id          = intval( $id );
 		$employee    = Employee::find( $id );
 		$departments = Department::all();
 

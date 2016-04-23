@@ -7,6 +7,7 @@ use App\Employee;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class DepartmentController extends Controller {
 	public function index() {
@@ -28,8 +29,18 @@ class DepartmentController extends Controller {
 	public function add() {
 		$employees = Employee::all();
 
-		return view( 'departments.add', [
+		return view( 'departments.create', [
 			'employees' => $employees
+		] );
+	}
+
+	public function edit( $id ) {
+		$employees  = Employee::all();
+		$department = Department::find( $id );
+
+		return view( 'departments.edit', [
+			'employees'  => $employees,
+			'department' => $department
 		] );
 	}
 }

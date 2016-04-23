@@ -18,6 +18,10 @@
                                 {{ $department->name }}
                             </div>
                             <div>{{ $department->phone }}</div>
+
+                            @if(Auth::check())
+                                <a href="{{ route('department.edit', $department->id) }}">Edit</a>
+                            @endif
                         </div>
                     </div>
                 </div>

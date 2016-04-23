@@ -137,4 +137,49 @@ class AjaxController extends Controller {
 
 		return response()->json( $response );
 	}
+
+	public function editDepartment( $id, Request $request ) {
+
+		$input = $request->only( [
+			'name',
+			'phone',
+			'manager_id'
+		] );
+
+		$department = Department::find( $id );
+
+		$validator = Validator::make( $input, [
+			'name'  => 'required',
+			'phone' => 'required',
+		] );
+
+		$response         = new stdClass();
+		$response->return = true;
+		$response->msg    = 'Updating successful department!';
+
+		if ( $validator->fails() ) {
+			$errors = $validator->errors()->getMessages();
+
+			$response->return = false;
+			$response->errors = $errors;
+
+			$response->msg = 'Some fields are not valid!';
+
+			return response()->json( $response );
+		}
+
+		$update = $department->update( $input );
+		if ( $update ) {
+			$response->employee   = $department;
+			$response->http_refer = route( 'department.show', $department->id );
+		} else {
+			$response->return = false;
+			$response->errors = [ ];
+			$response->msg    = 'Some thing went wrong!';
+
+			return response()->json( $response );
+		}
+
+		return response()->json( $response );
+	}
 }

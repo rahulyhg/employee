@@ -23,7 +23,9 @@
                             <div>{{ $employee->phone }}</div>
                             <div>{{ $employee->job }}</div>
 
-                            <a href="{{ route('employee.edit', $employee->id) }}">Edit</a>
+                            @if(Auth::check())
+                                <a href="{{ route('employee.edit', $employee->id) }}">Edit</a>
+                            @endif
                         </div>
                     </div>
                 </div>
