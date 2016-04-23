@@ -1,27 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Departments</div>
+    <div class="content">
+        <div class="departments">
+            <div class="container">
+                <div class="f-heading text-center">
+                    <h2 class="primary">Departments</h2>
+                    <div class="secondary">Employees lorem ipsum ext sane uet.</div>
+                    <span class="line"></span>
+                </div>
 
-                    <div class="panel-body">
-                        @foreach($departments as $index => $department)
-                            @if(isset($department->manager->id))
-                                <div>{{ $department->manager->name }}</div>
-                            @else
-                                <div>Not set</div>
-                            @endif
+                <div class="row">
+                    @foreach($departments as $index => $department)
+                        <div class="col-md-4">
                             <div class="department">
-                                <div>
-                                    <a href="{{ route('department.show', $department->id) }}">{{ $department->name }}</a>
+                                <div class="img">
+                                    <a href="{{ route('department.show', $department->id) }}" title="{{ $department->name }}">
+                                        <img src="{{ asset('assets/images/department_test.jpg') }}" alt="test" class="img-responsive">
+                                    </a>
                                 </div>
-                                <div>{{ $department->phone }}</div>
+
+                                <div class="details">
+                                    <h3 class="name"><a href="{{ route('department.show', $department->id) }}">{{ $department->name }}</a></h3>
+                                    <div class="manager">Manager: <strong>{{ $department->manager->name }}</strong></div>
+                                    <div class="employees">Employees: <strong>{{ count($department->employees) }}</strong></div>
+                                </div>
                             </div>
-                        @endforeach
-                    </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
