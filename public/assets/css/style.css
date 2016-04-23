@@ -7831,6 +7831,9 @@ body {
 a {
   color: #2e8ece; }
 
+.panel {
+  border-radius: 0; }
+
 .fa-btn {
   margin-right: 6px; }
 
@@ -7954,7 +7957,8 @@ a {
       text-transform: uppercase; }
 
 .department {
-  border: 1px solid #eee; }
+  border: 1px solid #eee;
+  margin-bottom: 30px; }
   .department .details {
     padding: 30px; }
     .department .details .name {
