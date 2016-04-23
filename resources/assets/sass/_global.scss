@@ -1,7 +1,18 @@
 body {
-  font-family: 'Open Sans';
+	font-family: 'Open Sans';
 }
 
 .fa-btn {
-  margin-right: 6px;
+	margin-right: 6px;
+}
+
+.f-table {
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+}
+
+.f-table-cell {
+	display: table-cell;
+	vertical-align: middle;
 }
