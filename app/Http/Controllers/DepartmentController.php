@@ -20,7 +20,6 @@ class DepartmentController extends Controller
 
     public function show($id)
     {
-        $id = intval($id);
         $department = Department::find($id);
 
         return view('departments.show')->with([

@@ -1,17 +1,13 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Welcome</div>
+@section('head.title')
+    <title>Welcome to Employee Directory</title>
+@endsection
 
-                <div class="panel-body">
-                    Your Application's Landing Page.
-                </div>
-            </div>
+@section('content')
+    <div class="top-search">
+        <div class="container">
+            <h1 class="text-center">Welcome to <strong>Fries Team</strong></h1>
         </div>
     </div>
-</div>
 @endsection
