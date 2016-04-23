@@ -63,6 +63,86 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-md-4">
+                    <div class="department">
+                        <div class="img">
+                            <a href="#">
+                                <img src="{{ asset('assets/images/department_test.jpg') }}" alt="test" class="img-responsive">
+                            </a>
+                        </div>
+
+                        <div class="details">
+                            <h3 class="name"><a href="#">Department 1</a></h3>
+                            <div class="manager">Manager: <strong>David Beckham</strong></div>
+                            <div class="employees">Employees: <strong>100</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="department">
+                        <div class="img">
+                            <a href="#">
+                                <img src="{{ asset('assets/images/department_test.jpg') }}" alt="test" class="img-responsive">
+                            </a>
+                        </div>
+
+                        <div class="details">
+                            <h3 class="name"><a href="#">Department 1</a></h3>
+                            <div class="manager">Manager: <strong>David Beckham</strong></div>
+                            <div class="employees">Employees: <strong>100</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="department">
+                        <div class="img">
+                            <a href="#">
+                                <img src="{{ asset('assets/images/department_test.jpg') }}" alt="test" class="img-responsive">
+                            </a>
+                        </div>
+
+                        <div class="details">
+                            <h3 class="name"><a href="#">Department 1</a></h3>
+                            <div class="manager">Manager: <strong>David Beckham</strong></div>
+                            <div class="employees">Employees: <strong>100</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="department">
+                        <div class="img">
+                            <a href="#">
+                                <img src="{{ asset('assets/images/department_test.jpg') }}" alt="test" class="img-responsive">
+                            </a>
+                        </div>
+
+                        <div class="details">
+                            <h3 class="name"><a href="#">Department 1</a></h3>
+                            <div class="manager">Manager: <strong>David Beckham</strong></div>
+                            <div class="employees">Employees: <strong>100</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="department">
+                        <div class="img">
+                            <a href="#">
+                                <img src="{{ asset('assets/images/department_test.jpg') }}" alt="test" class="img-responsive">
+                            </a>
+                        </div>
+
+                        <div class="details">
+                            <h3 class="name"><a href="#">Department 1</a></h3>
+                            <div class="manager">Manager: <strong>David Beckham</strong></div>
+                            <div class="employees">Employees: <strong>100</strong></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
