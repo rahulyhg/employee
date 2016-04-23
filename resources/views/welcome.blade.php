@@ -38,4 +38,22 @@
             </div>
         </div>
     </div>
+
+    <div class="departments">
+        <div class="container">
+            <div class="f-heading text-center">
+                <h2 class="primary">Department</h2>
+                <div class="secondary">Employees lorem ipsum ext sane uet.</div>
+                <span class="line"></span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="img">
+                        <img src="{{ asset('assets/images/department_test.jpg') }}" alt="test">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

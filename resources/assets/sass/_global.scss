@@ -1,9 +1,14 @@
 body {
 	font-family: 'Open Sans';
+	font-size: 14px;
 }
 
 .fa-btn {
 	margin-right: 6px;
+}
+
+.btn {
+	border-radius: 0;
 }
 
 .f-table {
@@ -15,4 +20,30 @@ body {
 .f-table-cell {
 	display: table-cell;
 	vertical-align: middle;
+}
+
+.f-heading {
+	position: relative;
+	margin-bottom: 60px;
+	margin-top: 50px;
+
+	.primary {
+		text-transform: uppercase;
+		font-weight: 700;
+	}
+
+	.secondary {
+		padding-bottom: 20px;
+	}
+
+	.line {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		width: 30px;
+		height: 1px;
+		background-color: #308ed5;
+	}
 }

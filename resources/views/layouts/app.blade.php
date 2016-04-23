@@ -58,6 +58,21 @@
 </nav>
 
 @yield('content')
+
+<footer class="footer f-table">
+    <div class="f-table-cell">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-12 copy-right">Designed by Tu TV. Powered by Fries Team.</div>
+
+                <div class="pull-right">
+                    <a href="#" class="btn btn-default"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
 <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets/js/main.js') }}"></script>
