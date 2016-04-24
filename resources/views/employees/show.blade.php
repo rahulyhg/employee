@@ -4,6 +4,10 @@
     <title>{{ $employee->name }} - Employees</title>
 @endsection
 
+@section('navbar.left.admin')
+    <li><a href="{{ $employee->edit_link() }}" title="Edit {{ $employee->name }}">Edit employee</a></li>
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row">

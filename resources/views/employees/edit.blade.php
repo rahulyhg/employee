@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('head.title')
-    <title>Edit employee</title>
+    <title>Edit employee - {{ $employee->name }}</title>
 @endsection
 
 @section('content')

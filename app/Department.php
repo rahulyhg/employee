@@ -17,7 +17,7 @@ class Department extends Model {
 	];
 
 	public function employees() {
-		return $this->hasMany( 'App\Employee', 'department_id' );
+		return $this->hasMany( 'App\Employee', 'department_id' )->where( 'id', '!=', $this->manager->id );
 	}
 
 	public function manager() {
@@ -26,5 +26,17 @@ class Department extends Model {
 
 	public function permalink() {
 		return route( 'department.show', $this->id );
+	}
+
+	public function edit_link() {
+		return route( 'department.edit', $this->id );
+	}
+
+	public function totalEmployees() {
+		if ( ! $this->manager ) {
+			return $this->employees->count();
+		}
+
+		return $this->employees->count() + 1;
 	}
 }

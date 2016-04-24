@@ -4,6 +4,10 @@
     <title>{{ $department->name }} - Departments</title>
 @endsection
 
+@section('navbar.left.admin')
+    <li><a href="{{ $department->edit_link() }}" title="Edit {{ $department->name }}">Edit department</a></li>
+@endsection
+
 @section('content')
     <div class="heading-top f-table">
         <div class="f-table-cell">
@@ -39,7 +43,7 @@
                             <i class="fa fa-users" aria-hidden="true"></i>
                         </div>
 
-                        <div class="des">{{ $department->employees->count() }}</div>
+                        <div class="des">{{ $department->totalEmployees() }}</div>
                     </div>
                 </div>
             </div>

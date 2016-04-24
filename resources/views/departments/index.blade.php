@@ -9,7 +9,7 @@
         <div class="departments">
             <div class="container">
                 <div class="f-heading text-center">
-                    <h2 class="primary">Departments</h2>
+                    <h2 class="primary">All departments</h2>
                     <div class="secondary">Employees lorem ipsum ext sane uet.</div>
                     <span class="line"></span>
                 </div>
@@ -27,7 +27,7 @@
                                 <div class="details">
                                     <h3 class="name"><a href="{{ $department->permalink() }}">{{ $department->name }}</a></h3>
                                     <div class="manager">Manager: <strong>{{ $department->manager->name }}</strong></div>
-                                    <div class="employees">Employees: <strong>{{ $department->employees->count() }}</strong></div>
+                                    <div class="employees">Employees: <strong>{{ $department->totalEmployees() }}</strong></div>
                                 </div>
                             </div>
                         </div>

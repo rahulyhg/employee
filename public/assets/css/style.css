@@ -7900,6 +7900,12 @@ a {
       padding: 10px 0; }
   .navbar-static-top .navbar-nav {
     padding: 25px 0; }
+    .navbar-static-top .navbar-nav li.active a {
+      color: #2e8ece;
+      background-color: transparent; }
+      .navbar-static-top .navbar-nav li.active a:hover {
+        color: #2e8ece;
+        background-color: transparent; }
     .navbar-static-top .navbar-nav li a {
       color: #333;
       font-size: 14px;

@@ -30,4 +30,8 @@ class Employee extends Model {
 	public function permalink() {
 		return route( 'employee.show', $this->id );
 	}
+
+	public function edit_link() {
+		return route( 'employee.edit', $this->id );
+	}
 }
