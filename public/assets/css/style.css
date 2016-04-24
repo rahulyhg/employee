@@ -7884,6 +7884,13 @@ a {
 .border-right {
   border-right: 1px solid; }
 
+.back-to-top {
+  display: none;
+  position: relative;
+  border: 1px solid #fff; }
+  .back-to-top.active {
+    display: block; }
+
 .has-errors .form-control {
   border-color: red; }
 
@@ -7913,7 +7920,7 @@ a {
       font-weight: 700;
       padding: 14px 26px; }
       .navbar-static-top .navbar-nav li a.login {
-        border: 1px solid #000; }
+        border: 1px solid #999; }
 
 .footer {
   background-color: #2e8ece;

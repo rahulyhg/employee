@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Validator;
 
 class EmployeeController extends Controller {
 	public function index() {
-		$employees = Employee::all();
+		$paging_employee = config( 'paging.employee' );
+
+		$employees = Employee::paginate($paging_employee);
 
 		return view( 'employees.index' )->with( [
 			'employees' => $employees

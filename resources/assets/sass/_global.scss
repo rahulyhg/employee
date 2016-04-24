@@ -75,3 +75,13 @@ a {
 .border-right {
 	border-right: 1px solid;
 }
+
+.back-to-top {
+	display: none;
+	position: relative;
+	border: 1px solid #fff;
+
+	&.active {
+		display: block;
+	}
+}

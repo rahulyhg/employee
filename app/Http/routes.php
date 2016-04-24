@@ -16,7 +16,18 @@ Route::get( '/', [
 	'uses' => 'HomeController@index'
 ] );
 
+Route::get( 'home', function () {
+	return redirect()->route( 'home' );
+} );
+
 Route::auth();
+
+/**
+ * Disable register
+ */
+Route::any( 'register', function () {
+	abort( 404 );
+} );
 
 /**
  * Department
@@ -40,8 +51,8 @@ Route::group( [ 'prefix' => 'departments' ], function () {
 
 	Route::get( 'edit/{id}', [
 		'middleware' => 'auth',
-		'as'   => 'department.edit',
-		'uses' => 'DepartmentController@edit'
+		'as'         => 'department.edit',
+		'uses'       => 'DepartmentController@edit'
 	] )->where( 'id', '[0-9]+' );
 } );
 
@@ -56,14 +67,14 @@ Route::group( [ 'prefix' => 'employees' ], function () {
 
 	Route::get( 'add', [
 		'middleware' => 'auth',
-		'as'   => 'employee.add',
-		'uses' => 'EmployeeController@addShow',
+		'as'         => 'employee.add',
+		'uses'       => 'EmployeeController@addShow',
 	] );
 
 	Route::get( 'edit/{id}', [
 		'middleware' => 'auth',
-		'as'   => 'employee.edit',
-		'uses' => 'EmployeeController@editShow',
+		'as'         => 'employee.edit',
+		'uses'       => 'EmployeeController@editShow',
 	] )->where( 'id', '[0-9]+' );
 
 	/**

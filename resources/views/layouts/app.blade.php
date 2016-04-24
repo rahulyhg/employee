@@ -77,7 +77,7 @@
                 <div class="col-md-6 col-sm-12 copy-right">Designed by Tu TV. Powered by Fries Team.</div>
 
                 <div class="pull-right">
-                    <a href="#" class="btn btn-default"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+                    <a href="#" class="btn f-button back-to-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
