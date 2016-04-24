@@ -7824,9 +7824,14 @@ button.close {
 .fa-percent:before {
   content: ""; }
 
+html {
+  position: relative;
+  min-height: 100%; }
+
 body {
   font-family: 'Open Sans';
-  font-size: 14px; }
+  font-size: 14px;
+  margin-bottom: 200px; }
 
 a {
   color: #2e8ece; }
@@ -7926,7 +7931,9 @@ a {
   background-color: #2e8ece;
   color: #fff;
   min-height: 100px;
-  margin-top: 100px; }
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
   .footer .copy-right {
     line-height: 42px; }
   .footer .btn {
@@ -8052,5 +8059,28 @@ a {
       right: -8px;
       background: url("../images/manager.png");
       background-size: cover; }
+
+.profile {
+  margin-top: 50px; }
+  .profile .f-heading {
+    margin-top: 0;
+    margin-left: 8px;
+    padding-bottom: 14px;
+    margin-bottom: 26px; }
+    .profile .f-heading .primary {
+      margin: 0;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: #2e8ece; }
+    .profile .f-heading .line {
+      margin: 0;
+      background-color: #8b97a8;
+      height: 2px; }
+  .profile .table td {
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px; }
+    .profile .table td:first-child {
+      font-weight: 700; }
 
 /*# sourceMappingURL=style.css.map */

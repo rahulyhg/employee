@@ -59,7 +59,7 @@
 
         <div class="row employees">
             @if($department->manager)
-                <div class="col-md-4">
+                <div class="col-md-4" id="profile-{{ $department->manager->id }}">
                     <div class="employee manager">
                         <div class="img">
                             <a href="{{ $department->manager->permalink() }}">
@@ -76,7 +76,7 @@
                 </div>
             @endif
             @foreach($department->employees as $employee)
-                <div class="col-md-4">
+                <div class="col-md-4" id="profile-{{ $employee->id }}">
                     <div class="employee">
                         <div class="img">
                             <a href="{{ $employee->permalink() }}">

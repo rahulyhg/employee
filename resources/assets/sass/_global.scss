@@ -1,6 +1,12 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
+
 body {
 	font-family: 'Open Sans';
 	font-size: 14px;
+	margin-bottom: 200px;
 }
 
 a {

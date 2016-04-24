@@ -9,35 +9,69 @@
 @endsection
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="panel panel-default">
-                    <div class="panel-heading">{{ $employee->name }}</div>
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="profile">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="avatar">
+                                    <img src="{{ asset('assets/images/avatar.jpg') }}" alt="Avatar's {{ $employee->name }}" class="img-responsive">
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="f-heading">
+                                    <h1 class="primary">{{ $employee->name }}</h1>
+                                    <span class="line"></span>
+                                </div>
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>{{ $employee->name }}</td>
+                                    </tr>
 
-                    <div class="panel-body">
-                        <div class="employee">
-                            @if (!$employee->managers->isEmpty())
-                                <strong>Quản lý: </strong>
-                                @foreach($employee->managers as $index => $manager)
-                                    {{ $manager->name }},
-                                @endforeach
-                            @endif
-                            <div>{{ $employee->name }}</div>
-                            @if($employee->department)
-                                <div>{{ $employee->department->name }}</div>
-                            @endif
-                            <div>{{ $employee->email }}</div>
-                            <div>{{ $employee->phone }}</div>
-                            <div>{{ $employee->job }}</div>
+                                    <tr>
+                                        <td>Department</td>
+                                        <td><a href="{{ $employee->department->permalink() }}#profile-{{ $employee->id }}">{{ $employee->department->name }}</a></td>
+                                    </tr>
 
-                            @if(Auth::check())
-                                <a href="{{ route('employee.edit', $employee->id) }}">Edit</a>
-                            @endif
+                                    <tr>
+                                        <td>Job title</td>
+                                        <td>{{ $employee->job }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Phone</td>
+                                        <td>{{ $employee->phone }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>{{ $employee->email }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
+
+                        @if ($employee->managers)
+                            <div class="managers">
+                                <h2>Manager</h2>
+                                <div class="list-departments">
+                                    @foreach($employee->managers as $department)
+                                        <div>
+                                            <a href="{{ $department->permalink() }}">{{ $department->name }}</a>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 @endsection
