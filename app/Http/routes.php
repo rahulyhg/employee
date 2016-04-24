@@ -25,9 +25,9 @@ Route::auth();
 /**
  * Disable register
  */
-Route::any( 'register', function () {
-	abort( 404 );
-} );
+//Route::any( 'register', function () {
+//	abort( 404 );
+//} );
 
 /**
  * Department
@@ -87,6 +87,17 @@ Route::group( [ 'prefix' => 'employees' ], function () {
 } );
 
 /**
+ * User
+ */
+Route::group( [ 'prefix' => 'users' ], function () {
+	Route::get( 'add', [
+		'middleware' => 'auth',
+		'as'         => 'user.add',
+		'uses'       => 'UserController@create',
+	] );
+} );
+
+/**
  * Ajax
  */
 Route::group( [ 'prefix' => 'ajax' ], function () {
@@ -112,5 +123,12 @@ Route::group( [ 'prefix' => 'ajax' ], function () {
 			'as'   => 'ajax.department.edit',
 			'uses' => 'AjaxController@editDepartment',
 		] )->where( 'id', '[0-9]+' );
+	} );
+
+	Route::group( [ 'prefix' => 'user' ], function () {
+		Route::post( 'add', [
+			'as'   => 'ajax.user.add',
+			'uses' => 'AjaxController@addUser',
+		] );
 	} );
 } );

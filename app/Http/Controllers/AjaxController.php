@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Department;
 use App\Employee;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -224,6 +225,46 @@ class AjaxController extends Controller {
 
 			return response()->json( $response );
 		}
+
+		return response()->json( $response );
+	}
+
+	/**
+	 * Create new department
+	 *
+	 * @param Request $request
+	 *
+	 * @return mixed
+	 */
+	public function addUser( Request $request ) {
+		$input = $request->only( [
+			'name',
+			'email',
+		] );
+
+		$validator = Validator::make( $input, [
+			'name'  => 'required',
+			'email' => 'required|unique:users|email',
+		] );
+
+		$response         = new stdClass();
+		$response->return = true;
+		$response->msg    = 'Creating successful new user!';
+
+		if ( $validator->fails() ) {
+			$errors = $validator->errors()->getMessages();
+
+			$response->return = false;
+			$response->errors = $errors;
+
+			$response->msg = 'Some fields are not valid!';
+
+			return response()->json( $response );
+		}
+
+		$department           = User::create( $input );
+		$response->employee   = $department;
+		$response->http_refer = route( 'department.show', $department->id );
 
 		return response()->json( $response );
 	}

@@ -58,6 +58,7 @@
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="{{ route('employee.add') }}">Create employee</a></li>
                             <li><a href="{{ route('department.add') }}">Create department</a></li>
+                            <li><a href="{{ route('user.add') }}">Create user</a></li>
 
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                         </ul>

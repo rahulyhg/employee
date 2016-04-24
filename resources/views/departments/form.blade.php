@@ -4,13 +4,13 @@
     <div class="form-group" data-input="name">
         <label for="name">Name</label>
         <input name="name" id="name" type="text" class="form-control" value="{{ $form['defaults']['name'] }}" placeholder="Name">
-        <div class="errors"></div>
+        <div class="errors help-block"></div>
     </div>
 
     <div class="form-group" data-input="phone">
         <label for="phone">Phone</label>
         <input name="phone" id="phone" type="text" class="form-control" value="{{ $form['defaults']['phone'] }}" placeholder="Phone">
-        <div class="errors"></div>
+        <div class="errors help-block"></div>
     </div>
 
     <div class="form-group" data-input="manager_id">
@@ -21,7 +21,7 @@
                 <option value="{{ $employee->id }}" {{ ($employee->id == $form['defaults']['manager_id']) ? 'selected="selected"': '' }}>{{ $employee->name }} &lt;{{ $employee->email }}&gt;</option>
             @endforeach
         </select>
-        <div class="errors"></div>
+        <div class="errors help-block"></div>
     </div>
 
     <div class="form-group">

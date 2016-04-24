@@ -4,25 +4,25 @@
     <div class="form-group" data-input="name">
         <label for="name">Name</label>
         <input name="name" id="name" type="text" class="form-control" value="{{ $form['defaults']['name'] }}" placeholder="Name">
-        <div class="errors"></div>
+        <div class="errors help-block"></div>
     </div>
 
     <div class="form-group" data-input="email">
         <label for="email">Email</label>
         <input name="email" id="email" type="email" class="form-control" value="{{ $form['defaults']['email'] }}" placeholder="Email">
-        <div class="errors"></div>
+        <div class="errors help-block"></div>
     </div>
 
     <div class="form-group" data-input="phone">
         <label for="phone">Phone</label>
         <input name="phone" id="phone" type="text" class="form-control" value="{{ $form['defaults']['phone'] }}" placeholder="Phone">
-        <div class="errors"></div>
+        <div class="errors help-block"></div>
     </div>
 
     <div class="form-group" data-input="job">
         <label for="job">Job title</label>
         <input name="job" id="job" type="text" class="form-control" value="{{ $form['defaults']['job'] }}" placeholder="Job title">
-        <div class="errors"></div>
+        <div class="errors help-block"></div>
     </div>
 
     <div class="form-group" data-input="department_id">
@@ -33,7 +33,7 @@
                 <option value="{{ $department->id }}" {{ ($department->id == $form['defaults']['department_id']) ? 'selected="selected"': '' }}>{{ $department->name }}</option>
             @endforeach
         </select>
-        <div class="errors"></div>
+        <div class="errors help-block"></div>
     </div>
 
     <div class="form-group">
