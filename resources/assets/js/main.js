@@ -1,15 +1,24 @@
 jQuery(document).ready(function ($) {
 
     //Back To top
-    jQuery(window).scroll(function () {
-        if (jQuery(this).scrollTop() > 400) {
-            jQuery('.back-to-top').addClass('active');
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 400) {
+            $('.back-to-top').addClass('active');
         } else {
-            jQuery('.back-to-top').removeClass('active');
+            $('.back-to-top').removeClass('active');
         }
     });
-    jQuery('.back-to-top').on('click', function () {
-        jQuery('html, body').animate({scrollTop: '0px'}, 800);
+    $('.back-to-top').on('click', function () {
+        $('html, body').animate({scrollTop: '0px'}, 800);
         return false;
+    });
+
+    $('.f_delete').on('click', function (e) {
+        e.preventDefault();
+
+        var r = confirm("Are you sure!");
+        if (r == true) {
+            location.href = $(this).attr('href');
+        }
     });
 });

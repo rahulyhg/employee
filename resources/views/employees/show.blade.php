@@ -6,7 +6,7 @@
 
 @section('navbar.left.admin')
     <li><a href="{{ $employee->edit_link() }}" title="Edit {{ $employee->name }}">Edit</a></li>
-    <li class="f_delete"><a href="{{ $employee->delete_link() }}" title="Delete {{ $employee->name }}">Delete</a></li>
+    <li><a class="f_delete" href="{{ $employee->delete_link() }}" title="Delete {{ $employee->name }}">Delete</a></li>
 @endsection
 
 @section('content')
