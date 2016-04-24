@@ -23,4 +23,8 @@ class Department extends Model {
 	public function manager() {
 		return $this->belongsTo( 'App\Employee', 'manager_id' );
 	}
+
+	public function permalink() {
+		return route( 'department.show', $this->id );
+	}
 }

@@ -19,15 +19,15 @@
                         <div class="col-md-4">
                             <div class="department">
                                 <div class="img">
-                                    <a href="{{ route('department.show', $department->id) }}" title="{{ $department->name }}">
+                                    <a href="{{ $department->permalink() }}" title="{{ $department->name }}">
                                         <img src="{{ asset('assets/images/department_test.jpg') }}" alt="test" class="img-responsive">
                                     </a>
                                 </div>
 
                                 <div class="details">
-                                    <h3 class="name"><a href="{{ route('department.show', $department->id) }}">{{ $department->name }}</a></h3>
+                                    <h3 class="name"><a href="{{ $department->permalink() }}">{{ $department->name }}</a></h3>
                                     <div class="manager">Manager: <strong>{{ $department->manager->name }}</strong></div>
-                                    <div class="employees">Employees: <strong>{{ count($department->employees) }}</strong></div>
+                                    <div class="employees">Employees: <strong>{{ $department->employees->count() }}</strong></div>
                                 </div>
                             </div>
                         </div>

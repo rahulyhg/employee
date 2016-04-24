@@ -58,7 +58,7 @@
                 <div class="col-md-4">
                     <div class="employee manager">
                         <div class="img">
-                            <a href="{{ route('employee.show', $department->manager->id) }}">
+                            <a href="{{ $department->manager->permalink() }}">
                                 <img src="{{ asset('assets/images/avatar.jpg') }}" alt="{{ $department->manager->name }}" class="img-responsive">
                             </a>
                         </div>
@@ -75,7 +75,7 @@
                 <div class="col-md-4">
                     <div class="employee">
                         <div class="img">
-                            <a href="{{ route('employee.show', $employee->id) }}">
+                            <a href="{{ $employee->permalink() }}">
                                 <img src="{{ asset('assets/images/avatar.jpg') }}" alt="{{ $employee->name }}" class="img-responsive">
                             </a>
                         </div>

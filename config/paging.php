@@ -7,6 +7,6 @@
  */
 
 return [
-	'department' => 9,
+	'department' => 6,
 	'employee'   => 9,
 ];

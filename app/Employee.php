@@ -26,4 +26,8 @@ class Employee extends Model {
 	public function managers() {
 		return $this->hasMany( 'App\Department', 'manager_id' );
 	}
+
+	public function permalink() {
+		return route( 'employee.show', $this->id );
+	}
 }
