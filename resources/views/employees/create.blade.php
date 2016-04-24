@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('head.title')
+    <title>Create a employee</title>
+@endsection
+
 @section('content')
     <div class="content">
         <div class="container">

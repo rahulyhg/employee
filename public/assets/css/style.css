@@ -7962,6 +7962,11 @@ a {
 .department {
   border: 1px solid #eee;
   margin-bottom: 30px; }
+  .department .img a {
+    display: block;
+    text-align: center; }
+    .department .img a img {
+      display: inline-block; }
   .department .details {
     padding: 30px; }
     .department .details .name {
