@@ -14,7 +14,7 @@ class EmployeeController extends Controller {
 	public function index() {
 		$paging_employee = config( 'paging.employee' );
 
-		$employees = Employee::paginate($paging_employee);
+		$employees = Employee::paginate( $paging_employee );
 
 		return view( 'employees.index' )->with( [
 			'employees' => $employees
@@ -32,6 +32,10 @@ class EmployeeController extends Controller {
 		$id       = intval( $id );
 		$employee = Employee::find( $id );
 
+		if ( ! $employee ) {
+			abort( 404 );
+		}
+
 		return view( 'employees.show' )->with( [
 			'employee' => $employee
 		] );
@@ -47,6 +51,10 @@ class EmployeeController extends Controller {
 
 	public function editShow( $id ) {
 		$employee    = Employee::find( $id );
+		if ( ! $employee ) {
+			return redirect()->route( 'employee.index' );
+		}
+
 		$departments = Department::all();
 
 		return view( 'employees.edit', [

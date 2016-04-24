@@ -22,6 +22,9 @@ class DepartmentController extends Controller {
 
 	public function show( $id ) {
 		$department = Department::find( $id );
+		if ( ! $department ) {
+			abort( 404 );
+		}
 
 		return view( 'departments.show' )->with( [
 			'department' => $department
@@ -39,6 +42,9 @@ class DepartmentController extends Controller {
 	public function edit( $id ) {
 		$employees  = Employee::all();
 		$department = Department::find( $id );
+		if ( ! $department ) {
+			return redirect()->route( 'department.index' );
+		}
 
 		return view( 'departments.edit', [
 			'employees'  => $employees,
