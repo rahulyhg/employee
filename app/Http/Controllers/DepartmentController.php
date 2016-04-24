@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Auth;
 
 class DepartmentController extends Controller {
 	public function index() {
-		$departments = Department::all();
+		$paging_department = config( 'paging.department' );
+
+		$departments = Department::paginate( $paging_department );
 
 		return view( 'departments.index' )->with( [
 			'departments' => $departments

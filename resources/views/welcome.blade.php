@@ -12,7 +12,7 @@
                     <div class="col-md-6 col-md-offset-3">
                         <div class="top text-center">
                             <h2 class="text-uppercase">Welcome to <strong>Fries Team</strong></h2>
-                            <p>You can search by Over {{ $employees->count() }} Employees and {{ count($departments) }} Departments</p>
+                            <p>You can search by Over {{ $employees->count() }} Employees and {{ $departments->total() }} Departments</p>
                         </div>
 
                         <div class="bottom">
@@ -28,7 +28,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-3">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+                                        <button type="submit" class="btn btn-default f-button"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
                                     </div>
                                 </div>
                             </form>
@@ -65,6 +65,10 @@
                         </div>
                     </div>
                 @endforeach
+            </div>
+
+            <div class="paging-container f-component">
+                <a href="{{ route('department.index') }}" class="btn btn-default f-button">More departments</a>
             </div>
         </div>
     </div>

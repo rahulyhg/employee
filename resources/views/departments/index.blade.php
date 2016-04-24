@@ -33,6 +33,12 @@
                         </div>
                     @endforeach
                 </div>
+
+                @if($departments->links())
+                    <div class="paging-container">
+                        {!! $departments->links() !!}
+                    </div>
+                @endif
             </div>
         </div>
     </div>

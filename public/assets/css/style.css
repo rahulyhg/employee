@@ -7871,6 +7871,16 @@ a {
 .content {
   margin-top: 50px; }
 
+.f-button {
+  border-radius: 0;
+  background-color: #308ed5;
+  border: none;
+  color: #fff;
+  padding: 15px 30px; }
+
+.f-component {
+  margin: 20px 0; }
+
 .has-errors .form-control {
   border-color: red; }
 
@@ -7909,6 +7919,15 @@ a {
     color: #fff;
     background-color: transparent;
     padding: 10px 14px; }
+
+.paging-container {
+  text-align: center; }
+  .paging-container .pagination li span, .paging-container .pagination li a {
+    border-radius: 0;
+    padding: 9px 15px;
+    font-size: 14px;
+    margin: 0 5px;
+    font-weight: bold; }
 
 /* Home page */
 .top-search {
@@ -7952,11 +7971,6 @@ a {
       padding: 24px 10px;
       color: #fff; }
     .top-search .bottom .form-search .btn {
-      border-radius: 0;
-      background-color: #308ed5;
-      border: none;
-      color: #fff;
-      padding: 15px 30px;
       text-transform: uppercase; }
 
 .department {

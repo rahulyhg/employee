@@ -1,0 +1,16 @@
+.paging-container {
+	text-align: center;
+
+	.pagination {
+		li {
+
+			span, a {
+				border-radius: 0;
+				padding: 9px 15px;
+				font-size: 14px;
+				margin: 0 5px;
+				font-weight: bold;
+			}
+		}
+	}
+}
