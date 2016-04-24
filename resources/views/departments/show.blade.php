@@ -5,6 +5,47 @@
 @endsection
 
 @section('content')
+    <div class="heading-top f-table">
+        <div class="f-table-cell">
+            <div class="container text-center">
+                <h1>{{ $department->name }}</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="department-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="box border-right">
+                        <div class="icon"><i class="fa fa-user-secret" aria-hidden="true"></i></div>
+                        @if($department->manager)
+                            <div class="des">{{ $department->manager->name }}</div>
+                        @else
+                            <div class="des">Not set</div>
+                        @endif
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="box border-right">
+                        <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                        <div class="des">{{ $department->phone }}</div>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="box ">
+                        <div class="icon">
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="des">{{ $department->employees->count() }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">

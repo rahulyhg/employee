@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="top-search f-table">
+    <div class="top-search heading-top f-table">
         <div class="f-table-cell">
             <div class="container">
                 <div class="row">

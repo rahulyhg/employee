@@ -25,3 +25,26 @@
 		}
 	}
 }
+
+.department-info {
+	.box {
+		border-color: #999;
+	}
+}
+
+.box {
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 50px;
+
+	.icon {
+		padding: 20px 0;
+		font-size: 26px;
+		color: #2e8ece;
+	}
+
+	.des {
+		font-size: 20px;
+		color: #666
+	}
+}

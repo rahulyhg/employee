@@ -7881,6 +7881,9 @@ a {
 .f-component {
   margin: 20px 0; }
 
+.border-right {
+  border-right: 1px solid; }
+
 .has-errors .form-control {
   border-color: red; }
 
@@ -7929,12 +7932,15 @@ a {
     margin: 0 5px;
     font-weight: bold; }
 
-/* Home page */
-.top-search {
-  background-image: url("../images/home_bg.jpg");
+.heading-top {
   background-size: cover;
   min-height: 600px;
-  color: #fff; }
+  color: #fff;
+  background-image: url("../images/department_show.jpg"); }
+
+/* Home page */
+.top-search {
+  background-image: url("../images/home_bg.jpg"); }
   .top-search .top {
     margin-bottom: 30px; }
     .top-search .top h2 {
@@ -7989,5 +7995,20 @@ a {
       text-transform: uppercase;
       font-weight: 700;
       font-size: 14px; }
+
+.department-info .box {
+  border-color: #999; }
+
+.box {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px; }
+  .box .icon {
+    padding: 20px 0;
+    font-size: 26px;
+    color: #2e8ece; }
+  .box .des {
+    font-size: 20px;
+    color: #666; }
 
 /*# sourceMappingURL=style.css.map */
