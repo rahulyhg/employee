@@ -77,6 +77,12 @@ Route::group( [ 'prefix' => 'employees' ], function () {
 		'uses'       => 'EmployeeController@editShow',
 	] )->where( 'id', '[0-9]+' );
 
+	Route::get( 'delete/{id}', [
+		'middleware' => 'auth',
+		'as'         => 'employee.delete',
+		'uses'       => 'EmployeeController@delete',
+	] )->where( 'id', '[0-9]+' );
+
 	/**
 	 * Show
 	 */

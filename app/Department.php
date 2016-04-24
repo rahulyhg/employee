@@ -17,7 +17,11 @@ class Department extends Model {
 	];
 
 	public function employees() {
-		return $this->hasMany( 'App\Employee', 'department_id' )->where( 'id', '!=', $this->manager->id );
+		if ( $this->manager ) {
+			return $this->hasMany( 'App\Employee', 'department_id' )->where( 'id', '!=', $this->manager->id );
+		}
+
+		return $this->hasMany( 'App\Employee', 'department_id' );
 	}
 
 	public function manager() {

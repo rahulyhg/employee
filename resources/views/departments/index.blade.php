@@ -26,7 +26,11 @@
 
                                 <div class="details">
                                     <h3 class="name"><a href="{{ $department->permalink() }}">{{ $department->name }}</a></h3>
-                                    <div class="manager">Manager: <strong>{{ $department->manager->name }}</strong></div>
+                                    @if($department->manager)
+                                        <div class="manager">Manager: <strong>{{ $department->manager->name }}</strong></div>
+                                    @else
+                                        <div class="manager">Manager: <strong>Not set</strong></div>
+                                    @endif
                                     <div class="employees">Employees: <strong>{{ $department->totalEmployees() }}</strong></div>
                                 </div>
                             </div>

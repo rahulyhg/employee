@@ -34,4 +34,8 @@ class Employee extends Model {
 	public function edit_link() {
 		return route( 'employee.edit', $this->id );
 	}
+
+	public function delete_link() {
+		return route( 'employee.delete', $this->id );
+	}
 }

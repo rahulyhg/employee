@@ -50,7 +50,7 @@ class EmployeeController extends Controller {
 	}
 
 	public function editShow( $id ) {
-		$employee    = Employee::find( $id );
+		$employee = Employee::find( $id );
 		if ( ! $employee ) {
 			return redirect()->route( 'employee.index' );
 		}
@@ -62,5 +62,20 @@ class EmployeeController extends Controller {
 			'departments' => $departments
 		] );
 
+	}
+
+	public function delete( $id ) {
+		$employee = Employee::find( $id );
+		if ( ! $employee ) {
+			return redirect()->route( 'employee.index' );
+		}
+
+		$employee->delete();
+		Department::where( 'manager_id', $id )
+		          ->update( [
+			          'manager_id' => null
+		          ] );
+
+		return redirect()->route( 'employee.index' );
 	}
 }
