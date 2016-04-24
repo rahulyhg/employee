@@ -8011,4 +8011,33 @@ a {
     font-size: 20px;
     color: #666; }
 
+.employee {
+  border: 1px solid #eee;
+  margin-bottom: 30px; }
+  .employee .img a {
+    display: block;
+    text-align: center; }
+    .employee .img a img {
+      display: inline-block; }
+  .employee .details {
+    padding: 30px; }
+    .employee .details .name {
+      margin: 0;
+      padding-bottom: 20px;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 14px; }
+  .employee.manager .img {
+    position: relative; }
+    .employee.manager .img:after {
+      display: block;
+      content: '';
+      width: 126px;
+      height: 125px;
+      position: absolute;
+      top: -7px;
+      right: -8px;
+      background: url("../images/manager.png");
+      background-size: cover; }
+
 /*# sourceMappingURL=style.css.map */

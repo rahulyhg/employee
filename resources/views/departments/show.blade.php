@@ -47,30 +47,48 @@
     </div>
 
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="panel panel-default">
-                    <div class="panel-heading">{{ $department->name }}</div>
+        <div class="f-heading text-center">
+            <h2 class="primary">Employees</h2>
+            <div class="secondary">Employees lorem ipsum ext sane uet.</div>
+            <span class="line"></span>
+        </div>
 
-                    <div class="panel-body">
-                        @if(isset($department->manager->id))
-                            <div>{{ $department->manager->name }}</div>
-                        @else
-                            <div>Not set</div>
-                        @endif
-                        <div class="department">
-                            <div>
-                                {{ $department->name }}
-                            </div>
-                            <div>{{ $department->phone }}</div>
+        <div class="row employees">
+            @if($department->manager)
+                <div class="col-md-4">
+                    <div class="employee manager">
+                        <div class="img">
+                            <a href="{{ route('employee.show', $department->manager->id) }}">
+                                <img src="{{ asset('assets/images/avatar.jpg') }}" alt="{{ $department->manager->name }}" class="img-responsive">
+                            </a>
+                        </div>
 
-                            @if(Auth::check())
-                                <a href="{{ route('department.edit', $department->id) }}">Edit</a>
-                            @endif
+                        <div class="details">
+                            <h3 class="name"><a href="{{ route('employee.show', $department->manager->id) }}">{{ $department->manager->name }}</a></h3>
+                            <div class="manager">Position: <strong>{{ $department->manager->job }}</strong></div>
+                            <div class="employees">Email: <strong>{{ $department->manager->email }}</strong></div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endif
+            @foreach($department->employees as $employee)
+                <div class="col-md-4">
+                    <div class="employee">
+                        <div class="img">
+                            <a href="{{ route('employee.show', $employee->id) }}">
+                                <img src="{{ asset('assets/images/avatar.jpg') }}" alt="{{ $employee->name }}" class="img-responsive">
+                            </a>
+                        </div>
+
+                        <div class="details">
+                            <h3 class="name"><a href="{{ route('employee.show', $employee->id) }}">{{ $employee->name }}</a></h3>
+                            <div class="manager">Position: <strong>{{ $employee->job }}</strong></div>
+                            <div class="employees">Email: <strong>{{ $employee->email }}</strong></div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
+
     </div>
 @endsection
