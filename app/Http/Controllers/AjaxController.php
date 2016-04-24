@@ -11,6 +11,13 @@ use Illuminate\Support\Facades\Validator;
 use stdClass;
 
 class AjaxController extends Controller {
+	/**
+	 * Create new employee
+	 *
+	 * @param Request $request
+	 *
+	 * @return mixed
+	 */
 	public function addEmployee( Request $request ) {
 		$input = $request->only( [
 			'name',
@@ -49,6 +56,14 @@ class AjaxController extends Controller {
 		return response()->json( $response );
 	}
 
+	/**
+	 * Edit employee
+	 *
+	 * @param $id
+	 * @param Request $request
+	 *
+	 * @return mixed
+	 */
 	public function editEmployee( $id, Request $request ) {
 
 		$input = $request->only( [
@@ -59,7 +74,18 @@ class AjaxController extends Controller {
 			'department_id'
 		] );
 
+		$response         = new stdClass();
+		$response->return = true;
+		$response->msg    = 'Updating successful employee!';
+
 		$employee = Employee::find( $id );
+		if ( ! $employee ) {
+			$response->return = false;
+			$response->msg    = 'Employee not found.';
+			$response->errors = [ ];
+
+			return response()->json( $response );
+		}
 
 		$validate_email = 'required|unique:employees|email';
 		if ( $employee->email == $input['email'] ) {
@@ -72,10 +98,6 @@ class AjaxController extends Controller {
 			'job'   => 'required',
 			'email' => $validate_email,
 		] );
-
-		$response         = new stdClass();
-		$response->return = true;
-		$response->msg    = 'Updating successful employee!';
 
 		if ( $validator->fails() ) {
 			$errors = $validator->errors()->getMessages();
@@ -104,6 +126,13 @@ class AjaxController extends Controller {
 		return response()->json( $response );
 	}
 
+	/**
+	 * Create new department
+	 *
+	 * @param Request $request
+	 *
+	 * @return mixed
+	 */
 	public function addDepartment( Request $request ) {
 		$input = $request->only( [
 			'name',
@@ -138,6 +167,14 @@ class AjaxController extends Controller {
 		return response()->json( $response );
 	}
 
+	/**
+	 * Edit department
+	 *
+	 * @param $id
+	 * @param Request $request
+	 *
+	 * @return mixed
+	 */
 	public function editDepartment( $id, Request $request ) {
 
 		$input = $request->only( [
@@ -146,16 +183,24 @@ class AjaxController extends Controller {
 			'manager_id'
 		] );
 
+		$response         = new stdClass();
+		$response->return = true;
+		$response->msg    = 'Updating successful department!';
+
 		$department = Department::find( $id );
+		if ( ! $department ) {
+			$response->return = false;
+			$response->msg    = 'Department not found.';
+			$response->errors = [ ];
+
+			return response()->json( $response );
+		}
+
 
 		$validator = Validator::make( $input, [
 			'name'  => 'required',
 			'phone' => 'required',
 		] );
-
-		$response         = new stdClass();
-		$response->return = true;
-		$response->msg    = 'Updating successful department!';
 
 		if ( $validator->fails() ) {
 			$errors = $validator->errors()->getMessages();
