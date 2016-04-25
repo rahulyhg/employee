@@ -7912,6 +7912,8 @@ a {
       padding: 10px 0; }
   .navbar-static-top .navbar-nav {
     padding: 25px 0; }
+    .navbar-static-top .navbar-nav li .dropdown-menu li a {
+      text-transform: none; }
     .navbar-static-top .navbar-nav li.active a {
       color: #2e8ece;
       background-color: transparent; }

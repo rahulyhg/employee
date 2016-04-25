@@ -262,9 +262,9 @@ class AjaxController extends Controller {
 			return response()->json( $response );
 		}
 
-		$department           = User::create( $input );
-		$response->employee   = $department;
-		$response->http_refer = route( 'department.show', $department->id );
+		$user           = User::create( $input );
+		$response->employee   = $user;
+		$response->http_refer = route( 'department.show', $user->id );
 
 		return response()->json( $response );
 	}

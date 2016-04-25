@@ -56,9 +56,10 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ route('employee.add') }}">Create employee</a></li>
-                            <li><a href="{{ route('department.add') }}">Create department</a></li>
-                            <li><a href="{{ route('user.add') }}">Create user</a></li>
+                            <li><a href="{{ route('employee.add') }}"><i class="fa fa-btn fa-user-plus" aria-hidden="true"></i>Create employee</a></li>
+                            <li><a href="{{ route('department.add') }}"><i class="fa fa-btn fa-medkit" aria-hidden="true"></i>Create department</a></li>
+                            <li><a href="{{ route('user.add') }}"><i class="fa fa-btn fa-user-secret" aria-hidden="true"></i>Create user</a></li>
+                            <li><a href="{{ route('user.profile') }}"><i class="fa fa-btn fa-pencil" aria-hidden="true"></i>Edit profile</a></li>
 
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                         </ul>

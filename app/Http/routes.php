@@ -101,6 +101,12 @@ Route::group( [ 'prefix' => 'users' ], function () {
 		'as'         => 'user.add',
 		'uses'       => 'UserController@create',
 	] );
+
+	Route::get( 'profile', [
+		'middleware' => 'auth',
+		'as'         => 'user.profile',
+		'uses'       => 'UserController@profile',
+	] );
 } );
 
 /**
