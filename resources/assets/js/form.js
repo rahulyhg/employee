@@ -1,5 +1,5 @@
 jQuery(document).ready(function ($) {
-    $('.form-group input').on('click', function (e) {
+    $('.form-group input').on('focus', function (e) {
         e.preventDefault();
 
         $(this).parent().removeClass('has-errors');
@@ -20,10 +20,10 @@ jQuery(document).ready(function ($) {
             method: method,
             data: data,
             dataType: 'json',
-            complete: function() {
+            complete: function () {
                 $this_button.attr('disabled', false);
             },
-            success: function(res) {
+            success: function (res) {
                 if (!res.return) {
                     $('.form-group .errors').html('');
                     $('.form-group').removeClass('has-errors');
@@ -69,10 +69,10 @@ jQuery(document).ready(function ($) {
             method: method,
             data: data,
             dataType: 'json',
-            complete: function() {
+            complete: function () {
                 $this_button.attr('disabled', false);
             },
-            success: function(res) {
+            success: function (res) {
                 if (!res.return) {
                     $('.form-group .errors').html('');
                     $('.form-group').removeClass('has-errors');
@@ -118,10 +118,10 @@ jQuery(document).ready(function ($) {
             method: method,
             data: data,
             dataType: 'json',
-            complete: function() {
+            complete: function () {
                 $this_button.attr('disabled', false);
             },
-            success: function(res) {
+            success: function (res) {
                 if (!res.return) {
                     $('.form-group .errors').html('');
                     $('.form-group').removeClass('has-errors');
