@@ -7896,6 +7896,9 @@ a {
   .back-to-top.active {
     display: block; }
 
+.notifications {
+  margin-top: 50px; }
+
 .has-errors .form-control {
   border-color: red; }
 

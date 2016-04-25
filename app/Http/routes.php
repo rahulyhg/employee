@@ -107,6 +107,18 @@ Route::group( [ 'prefix' => 'users' ], function () {
 		'as'         => 'user.profile',
 		'uses'       => 'UserController@profile',
 	] );
+
+	Route::post( 'password', [
+		'middleware' => 'auth',
+		'as'         => 'user.password',
+		'uses'       => 'UserController@pathPassword',
+	] );
+
+	Route::post( 'profile', [
+		'middleware' => 'auth',
+		'as'         => 'user.profile',
+		'uses'       => 'UserController@pathProfile',
+	] );
 } );
 
 /**

@@ -1,10 +1,10 @@
-<form action="{{ $form['url'] }}" method="{{ $form['method'] }}" class="form-user">
+<form action="{{ $form['url'] }}" method="{{ $form['method'] }}" class="form-profile">
     {{ csrf_field() }}
 
-    <div class="form-group" data-input="name">
+    <div class="form-group{!! ($errors->has('password')) ? ' has-errors' : '' !!}" data-input="name">
         <label for="name">Name</label>
         <input name="name" id="name" type="text" class="form-control" value="{{ $form['defaults']['name'] }}" placeholder="Name">
-        <div class="errors help-block"></div>
+        <div class="errors help-block">{{ ($errors->has('name') ? $errors->first('name') : '') }}</div>
     </div>
 
     <div class="form-group" data-input="email">
@@ -14,6 +14,6 @@
     </div>
 
     <div class="form-group">
-        <button class="btn btn-primary" type="submit" id="addUser">{{ $form['button'] }}</button>
+        <button class="btn btn-primary" type="submit" id="editProfile">{{ $form['button'] }}</button>
     </div>
 </form>

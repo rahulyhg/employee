@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+    @include('partials.notification')
     <div class="content">
         <div class="container">
             <div class="row">
@@ -19,7 +20,7 @@
                                             'name'  => $user->name,
                                             'email' => $user->email,
                                     ],
-                                    'url'      => route( 'ajax.user.add' ),
+                                    'url'      => route( 'user.profile' ),
                                     'method'   => 'POST',
                                     'button'   => 'Save'
                             ];
@@ -28,18 +29,16 @@
                         </div>
                     </div>
 
-                    <hr>
-
                     <div class="panel panel-default">
                         <div class="panel-heading">Change password</div>
                         <div class="panel-body">
                             <?php
                             $form = [
                                     'defaults' => [
-                                            'password'  => '',
-                                            'confirm_password' => '',
+                                            'password'              => '',
+                                            'password_confirmation' => '',
                                     ],
-                                    'url'      => route( 'ajax.user.add' ),
+                                    'url'      => route( 'user.password' ),
                                     'method'   => 'POST',
                                     'button'   => 'Save'
                             ];
