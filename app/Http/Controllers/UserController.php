@@ -44,7 +44,7 @@ class UserController extends Controller {
 		if ( $validator->fails() ) {
 			$errors = $validator->errors()->getMessages();
 
-			return view( 'users.profile' )->withErrors( $errors );
+			return redirect()->route( 'user.profile' )->withErrors( $errors );
 		}
 
 		$update = $user->update( [
@@ -72,7 +72,7 @@ class UserController extends Controller {
 		if ( $validator->fails() ) {
 			$errors = $validator->errors()->getMessages();
 
-			return view( 'users.profile' )->withErrors( $errors );
+			return redirect()->route( 'user.profile' )->withErrors( $errors );
 		}
 
 		$update = $user->update( $input );

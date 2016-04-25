@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 @if (isset($errors) && count($errors->all()) > 0)
-                    <div class="alert alert-danger cms-alert">
+                    <div class="alert alert-danger">
                         <a class="close" data-dismiss="alert">×</a>
                         Please check the form below for errors
                     </div>
