@@ -49,6 +49,12 @@ Route::group( [ 'prefix' => 'departments' ], function () {
 		'uses' => 'DepartmentController@show'
 	] )->where( 'id', '[0-9]+' );
 
+	Route::get( 'delete/{id}', [
+		'middleware' => 'auth',
+		'as'         => 'department.delete',
+		'uses'       => 'DepartmentController@delete',
+	] )->where( 'id', '[0-9]+' );
+
 	Route::get( 'edit/{id}', [
 		'middleware' => 'auth',
 		'as'         => 'department.edit',

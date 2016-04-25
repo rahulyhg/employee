@@ -51,4 +51,19 @@ class DepartmentController extends Controller {
 			'department' => $department
 		] );
 	}
+
+	public function delete( $id ) {
+		$department = Department::find( $id );
+		if ( ! $department ) {
+			return redirect()->route( 'department.index' );
+		}
+
+		$department->delete();
+		Employee::where( 'department_id', $id )
+		          ->update( [
+			          'department_id' => 0
+		          ] );
+
+		return redirect()->route( 'department.index' );
+	}
 }

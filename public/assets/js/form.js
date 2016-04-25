@@ -2,7 +2,7 @@
 'use strict';
 
 jQuery(document).ready(function ($) {
-    $('.form-group input').on('click', function (e) {
+    $('.form-group input').on('focus', function (e) {
         e.preventDefault();
 
         $(this).parent().removeClass('has-errors');

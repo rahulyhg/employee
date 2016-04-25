@@ -33,10 +33,12 @@
                                         <td>{{ $employee->name }}</td>
                                     </tr>
 
-                                    <tr>
-                                        <td>Department</td>
-                                        <td><a href="{{ $employee->department->permalink() }}#profile-{{ $employee->id }}">{{ $employee->department->name }}</a></td>
-                                    </tr>
+                                    @if ($employee->department)
+                                        <tr>
+                                            <td>Department</td>
+                                            <td><a href="{{ $employee->department->permalink() }}#profile-{{ $employee->id }}">{{ $employee->department->name }}</a></td>
+                                        </tr>
+                                    @endif
 
                                     <tr>
                                         <td>Job title</td>

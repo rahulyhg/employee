@@ -43,4 +43,8 @@ class Department extends Model {
 
 		return $this->employees->count() + 1;
 	}
+
+	public function delete_link() {
+		return route( 'department.delete', $this->id );
+	}
 }
