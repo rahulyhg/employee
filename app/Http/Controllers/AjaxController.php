@@ -270,12 +270,13 @@ class AjaxController extends Controller {
 
 		$user                 = User::create( $input );
 		$response->employee   = $user;
-		$response->http_refer = route( 'department.show', $user->id );
+		$response->http_refer = route( 'home' );
 
-		Mail::send( 'auth.emails.create', [ 'activated_code' => $activated_code ], function ( $m ) use ( $user ) {
-			$m->from( 'tutv95@gmail.com', 'Fries Team' );
-
-			$m->to( $user->email, $user->name )->subject( 'Verify Your Email Address.' );
+		Mail::send( 'auth.emails.create', [
+			'password' => $init_password,
+			'user'     => $user
+		], function ( $m ) use ( $user ) {
+			$m->to( $user->email, $user->name )->subject( 'Your account created.' );
 		} );
 
 		return response()->json( $response );

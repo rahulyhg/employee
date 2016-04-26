@@ -1,7 +1,14 @@
 <h2>Verify Your Email Address</h2>
 
-<div>
-    Thanks for creating an account with the verification demo app.
-    Please follow the link below to verify your email address
-    <a href="{{ url('register/verify/') . $activated_code }}">Activated</a>.<br/>
+<div class="content">
+    <p>Your account was created!</p><br>
+    Account: {{ $user->email }}<br>
+    Password: {{ $password }}<br>
+    Link login: <a href="{{ url('login') }}">{{ url('login') }}</a><br>
+    <p>After login, you need change your password.</p>
+</div>
+<div style="color: #666;margin-top: 50px;">
+    <div style="width: 200px; height: 1px; background-color: #eee;margin-bottom: 20px;"></div>
+    Regards,<br>
+    UET Fries
 </div>

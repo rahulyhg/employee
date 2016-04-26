@@ -19,7 +19,7 @@
                                             'password'              => '',
                                             'password_confirmation' => '',
                                     ],
-                                    'url'      => route( 'user.password' ),
+                                    'url'      => route( 'user.changePassword' ),
                                     'method'   => 'POST',
                                     'button'   => 'Save'
                             ];

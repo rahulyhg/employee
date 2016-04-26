@@ -16,10 +16,6 @@ Route::get( '/', [
 	'uses' => 'HomeController@index'
 ] );
 
-Route::get( 'home', function () {
-	return redirect()->route( 'home' );
-} );
-
 Route::auth();
 
 /**
@@ -129,7 +125,13 @@ Route::group( [ 'prefix' => 'users' ], function () {
 	Route::get( 'changepassword', [
 		'middleware' => 'auth',
 		'as'         => 'user.changepassword',
-		'uses'       => 'UserController@changepassword',
+		'uses'       => 'UserController@changePassword',
+	] );
+
+	Route::post( 'changepassword', [
+		'middleware' => 'auth',
+		'as'         => 'user.changePassword',
+		'uses'       => 'UserController@pathChangePassword',
 	] );
 } );
 

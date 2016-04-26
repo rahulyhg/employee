@@ -48,7 +48,8 @@ class UserController extends Controller {
 		}
 
 		$update = $user->update( [
-			'password' => bcrypt( $input['password'] ),
+			'password'  => bcrypt( $input['password'] ),
+			'activated' => 1
 		] );
 
 		return redirect()->route( 'user.profile' )->withSuccess( 'Update password successful!' );
@@ -78,5 +79,13 @@ class UserController extends Controller {
 		$update = $user->update( $input );
 
 		return redirect()->route( 'user.profile' )->withSuccess( 'Update profile successful!' );
+	}
+
+	public function changePassword() {
+		return view( 'users.change-password' );
+	}
+
+	public function pathChangePassword( Request $request ) {
+		return $this->pathPassword( $request );
 	}
 }
