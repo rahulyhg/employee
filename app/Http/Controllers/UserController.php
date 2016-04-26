@@ -48,8 +48,7 @@ class UserController extends Controller {
 		}
 
 		$update = $user->update( [
-			'password'  => bcrypt( $input['password'] ),
-			'activated' => 1
+			'password' => bcrypt( $input['password'] ),
 		] );
 
 		return redirect()->route( 'user.profile' )->withSuccess( 'Update password successful!' );

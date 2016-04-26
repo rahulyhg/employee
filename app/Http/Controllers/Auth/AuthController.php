@@ -72,6 +72,8 @@ class AuthController extends Controller {
 
 	public function authenticated( $request, $user ) {
 		if ( ! $user->activated ) {
+			$user->update( [ 'activated' => 1 ] );//Active account
+
 			return redirect()->intended( route( 'user.changepassword' ) );
 		}
 
