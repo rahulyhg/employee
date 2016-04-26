@@ -12,6 +12,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">Create new user</div>
                         <div class="panel-body">
+                            <div class="notify"></div>
                             <?php
                             $form = [
                                     'defaults' => [

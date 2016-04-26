@@ -125,10 +125,10 @@ jQuery(document).ready(function ($) {
                 $this_button.attr('disabled', false);
             },
             success: function success(res) {
-                if (!res.return) {
-                    $('.form-group .errors').html('');
-                    $('.form-group').removeClass('has-errors');
+                $('.form-group .errors').html('');
+                $('.form-group').removeClass('has-errors');
 
+                if (!res.return) {
                     var errors = res.errors;
                     var keys = Object.keys(errors);
                     for (var i = 0; i < keys.length; i++) {
@@ -146,7 +146,7 @@ jQuery(document).ready(function ($) {
                         }
                     }
                 } else {
-                    window.location.href = res.http_refer;
+                    location.href = res.http_refer;
                 }
             },
             error: function error(err) {
