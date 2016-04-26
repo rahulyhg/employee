@@ -23,7 +23,10 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="box border-right">
-                        <div class="icon"><i class="fa fa-user-secret" aria-hidden="true"></i></div>
+                        <div class="icon">
+                            <i class="fa fa-user-secret" aria-hidden="true"></i>
+                            <div class="cap">Manager</div>
+                        </div>
                         @if($department->manager)
                             <div class="des">{{ $department->manager->name }}</div>
                         @else
@@ -33,7 +36,10 @@
                 </div>
                 <div class="col-md-4">
                     <div class="box border-right">
-                        <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                        <div class="icon">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <div class="cap">Phone number</div>
+                        </div>
                         <div class="des">{{ $department->phone }}</div>
 
                     </div>
@@ -42,6 +48,7 @@
                     <div class="box ">
                         <div class="icon">
                             <i class="fa fa-users" aria-hidden="true"></i>
+                            <div class="cap">Employee numbers</div>
                         </div>
 
                         <div class="des">{{ $department->totalEmployees() }}</div>
