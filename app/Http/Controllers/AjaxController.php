@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use stdClass;
 
@@ -262,9 +263,20 @@ class AjaxController extends Controller {
 			return response()->json( $response );
 		}
 
-		$user           = User::create( $input );
+		$init_password           = str_random( 12 );
+		$activated_code          = str_random( 30 );
+		$input['password']       = bcrypt( $init_password );
+		$input['activated_code'] = $activated_code;
+
+		$user                 = User::create( $input );
 		$response->employee   = $user;
 		$response->http_refer = route( 'department.show', $user->id );
+
+		Mail::send( 'auth.emails.create', [ 'activated_code' => $activated_code ], function ( $m ) use ( $user ) {
+			$m->from( 'tutv95@gmail.com', 'Fries Team' );
+
+			$m->to( $user->email, $user->name )->subject( 'Verify Your Email Address.' );
+		} );
 
 		return response()->json( $response );
 	}

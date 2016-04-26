@@ -7899,6 +7899,9 @@ a {
 .notifications {
   margin-top: 50px; }
 
+.alert {
+  border-radius: 0; }
+
 .has-errors .form-control {
   border-color: red; }
 

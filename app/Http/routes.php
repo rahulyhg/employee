@@ -25,9 +25,9 @@ Route::auth();
 /**
  * Disable register
  */
-//Route::any( 'register', function () {
-//	abort( 404 );
-//} );
+Route::any( 'register', function () {
+	abort( 404 );
+} );
 
 /**
  * Department
@@ -124,6 +124,12 @@ Route::group( [ 'prefix' => 'users' ], function () {
 		'middleware' => 'auth',
 		'as'         => 'user.profile',
 		'uses'       => 'UserController@pathProfile',
+	] );
+
+	Route::get( 'changepassword', [
+		'middleware' => 'auth',
+		'as'         => 'user.changepassword',
+		'uses'       => 'UserController@changepassword',
 	] );
 } );
 
