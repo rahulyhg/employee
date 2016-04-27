@@ -103,7 +103,7 @@ class AjaxController extends Controller {
 				];
 
 				Storage::put( $path, file_get_contents( $file->getRealPath() ) );
-
+				
 				$size = config( 'image.size.employee' );
 				$img = Image::make( $path )->fit( $size[0], $size[1] );
 				$img->save( $path );

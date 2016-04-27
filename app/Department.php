@@ -47,4 +47,8 @@ class Department extends Model {
 	public function delete_link() {
 		return route( 'department.delete', $this->id );
 	}
+
+	public function cover() {
+		return $this->belongsTo( 'App\Media', 'cover_id' );
+	}
 }
