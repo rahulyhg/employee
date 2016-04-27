@@ -156,6 +156,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 	    'Laravelista\Ekko\EkkoServiceProvider',
+	    Intervention\Image\ImageServiceProvider::class
 
     ],
 
@@ -203,6 +204,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Ekko' => 'Laravelista\Ekko\Facades\Ekko',
+        'Image' => Intervention\Image\Facades\Image::class
 
     ],
 

@@ -12,6 +12,7 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Facades\Image;
 use stdClass;
 
 class AjaxController extends Controller {
@@ -102,6 +103,10 @@ class AjaxController extends Controller {
 				];
 
 				Storage::put( $path, file_get_contents( $file->getRealPath() ) );
+
+				$size = config( 'image.size.employee' );
+				$img = Image::make( $path )->fit( $size[0], $size[1] );
+				$img->save( $path );
 
 				$media     = Media::create( $create_file );
 				$avatar_id = $media->id;
