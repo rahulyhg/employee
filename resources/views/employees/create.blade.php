@@ -27,7 +27,7 @@
                                     'button'   => 'Add new'
                             ];
                             ?>
-                            @include('employees.form')
+                            @include('employees.form-create')
                         </div>
                     </div>
                 </div>
