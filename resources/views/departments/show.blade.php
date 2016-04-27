@@ -71,10 +71,10 @@
                     <div class="employee manager">
                         <div class="img">
                             <a href="{{ $department->manager->permalink() }}">
-                                @if($employee->avatar)
-                                    <img src="{{ $employee->avatar->get_url() }}" alt="Avatar's {{ $employee->name }}" class="img-responsive">
+                                @if($department->manager->avatar)
+                                    <img src="{{ $department->manager->avatar->get_url() }}" alt="Avatar's {{ $department->manager->name }}" class="img-responsive">
                                 @else
-                                    <img src="{{ asset('assets/images/avatar.jpg') }}" alt="Avatar's {{ $employee->name }}" class="img-responsive">
+                                    <img src="{{ asset('assets/images/avatar.jpg') }}" alt="Avatar's {{ $department->manager->name }}" class="img-responsive">
                                 @endif
                             </a>
                         </div>

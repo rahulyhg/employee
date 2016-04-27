@@ -63,7 +63,7 @@
                             </div>
                         </div>
 
-                        @if ($employee->managers)
+                        @if ($employee->managers->count())
                             <div class="managers">
                                 <h2>Manager</h2>
                                 <div class="list-departments">
