@@ -13,16 +13,6 @@
                         <div class="panel-heading">Avatar</div>
 
                         <div class="panel-body">
-                            <?php
-                            $form = [
-                                    'defaults' => [
-                                            'avatar' => '',
-                                    ],
-                                    'url'      => route( 'ajax.employee.edit', $employee->id ),
-                                    'method'   => 'POST',
-                                    'button'   => 'Update'
-                            ]
-                            ?>
                             @include('employees.avatar')
                         </div>
                     </div>
