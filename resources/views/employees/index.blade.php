@@ -18,7 +18,11 @@
                     <div class="employee">
                         <div class="img">
                             <a href="{{ $employee->permalink() }}">
-                                <img src="{{ asset('assets/images/avatar.jpg') }}" alt="{{ $employee->name }}" class="img-responsive">
+                                @if($employee->avatar)
+                                    <img src="{{ $employee->avatar->get_url() }}" alt="Avatar's {{ $employee->name }}" class="img-responsive">
+                                @else
+                                    <img src="{{ asset('assets/images/avatar.jpg') }}" alt="Avatar's {{ $employee->name }}" class="img-responsive">
+                                @endif
                             </a>
                         </div>
 

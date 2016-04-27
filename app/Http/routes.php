@@ -170,3 +170,19 @@ Route::group( [ 'prefix' => 'ajax' ], function () {
 		] );
 	} );
 } );
+
+Route::group( [ 'prefix' => 'uploads' ], function () {
+	Route::get( 'employee', [
+		'as'   => 'uploads.employee',
+		'uses' => function () {
+			return 'Employee!';
+		},
+	] );
+
+	Route::get( 'department', [
+		'as'   => 'uploads.department',
+		'uses' => function () {
+			return 'Department!';
+		},
+	] );
+} );

@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Department;
 use App\Employee;
+use App\Media;
 use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use stdClass;
 
@@ -67,6 +69,45 @@ class AjaxController extends Controller {
 	 * @return mixed
 	 */
 	public function editEmployee( $id, Request $request ) {
+		$employee = Employee::find( $id );
+		if ( ! $employee ) {
+			return redirect()->route( 'home' );
+		}
+
+		$avatar_id = $employee->avatar_id;
+
+		if ( $request->hasFile( 'avatar' ) ) {
+			$file = $request->file( 'avatar' );
+
+			$name    = $file->getClientOriginalName();
+			$arr_str = explode( '.', $name );
+
+			if ( count( $arr_str ) > 1 ) {
+				$miniType = $arr_str[ count( $arr_str ) - 1 ];
+
+				$name      = str_replace( '.' . $miniType, '', $name );
+				$name      = str_slug( $name, '_' );
+				$name_full = $name . '.' . $miniType;
+
+				$size = $file->getSize();
+
+				$dir         = 'uploads/employee/' . $id . '/';
+				$path        = $dir . $name_full;
+				$url         = url( $dir ) . '/' . $name_full;
+				$create_file = [
+					'name' => $name,
+					'url'  => $url,
+					'size' => $size,
+					'type' => $miniType
+				];
+
+				Storage::put( $path, file_get_contents( $file->getRealPath() ) );
+
+				$media     = Media::create( $create_file );
+				$avatar_id = $media->id;
+			}
+		}
+
 
 		$input = $request->only( [
 			'name',
@@ -75,19 +116,6 @@ class AjaxController extends Controller {
 			'job',
 			'department_id'
 		] );
-
-		$response         = new stdClass();
-		$response->return = true;
-		$response->msg    = 'Updating successful employee!';
-
-		$employee = Employee::find( $id );
-		if ( ! $employee ) {
-			$response->return = false;
-			$response->msg    = 'Employee not found.';
-			$response->errors = [ ];
-
-			return response()->json( $response );
-		}
 
 		$validate_email = 'required|unique:employees|email';
 		if ( $employee->email == $input['email'] ) {
@@ -104,28 +132,16 @@ class AjaxController extends Controller {
 		if ( $validator->fails() ) {
 			$errors = $validator->errors()->getMessages();
 
-			$response->return = false;
-			$response->errors = $errors;
-
-			$response->msg = 'Some fields are not valid!';
-
-			return response()->json( $response );
+			return redirect()->route( 'employee.show', $employee->id )->withErrors( $errors );
 		}
 
-		$update = $employee->update( $input );
+		$input['avatar_id'] = $avatar_id;
+		$update             = $employee->update( $input );
 		if ( $update ) {
-			$response->employee   = $employee;
-			$response->http_refer = route( 'employee.show', $employee->id );
-		} else {
-			$response->return = false;
-			$response->errors = [ ];
-			$response->msg    = 'Some thing went wrong!';
-
-			return response()->json( $response );
+			return redirect()->route( 'employee.show', $employee->id )->withErrors( 'Some thing went wrong!' );
 		}
 
-
-		return response()->json( $response );
+		return redirect()->route( 'employee.show', $employee->id );
 	}
 
 	/**

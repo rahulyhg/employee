@@ -1,4 +1,4 @@
-<form action="{{ $form['url'] }}" method="{{ $form['method'] }}" class="form-employee">
+<form action="{{ $form['url'] }}" method="{{ $form['method'] }}" class="form-employee" enctype="multipart/form-data">
     {{ csrf_field() }}
 
     <div class="form-group" data-input="name">
@@ -25,6 +25,12 @@
         <div class="errors help-block"></div>
     </div>
 
+    <div class="form-group" data-input="avatar">
+        <label for="avatar">Avatar</label>
+        <input name="avatar" id="avatar" type="file" class="form-control">
+        <div class="errors help-block"></div>
+    </div>
+
     <div class="form-group" data-input="department_id">
         <label for="department_id">Department</label>
         <select name="department_id" id="department_id" class="form-control">
@@ -37,6 +43,6 @@
     </div>
 
     <div class="form-group">
-        <button class="btn btn-primary" type="submit" id="addEmployee">{{ $form['button'] }}</button>
+        <button class="btn btn-primary" type="submit" id="editEmployee">{{ $form['button'] }}</button>
     </div>
 </form>

@@ -18,7 +18,11 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="avatar">
-                                    <img src="{{ asset('assets/images/avatar.jpg') }}" alt="Avatar's {{ $employee->name }}" class="img-responsive">
+                                    @if($employee->avatar)
+                                        <img src="{{ $employee->avatar->get_url() }}" alt="Avatar's {{ $employee->name }}" class="img-responsive">
+                                    @else
+                                        <img src="{{ asset('assets/images/avatar.jpg') }}" alt="Avatar's {{ $employee->name }}" class="img-responsive">
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-md-7">

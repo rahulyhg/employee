@@ -8,7 +8,26 @@
     <div class="content">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-5">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Avatar</div>
+
+                        <div class="panel-body">
+                            <?php
+                            $form = [
+                                    'defaults' => [
+                                            'avatar' => '',
+                                    ],
+                                    'url'      => route( 'ajax.employee.edit', $employee->id ),
+                                    'method'   => 'POST',
+                                    'button'   => 'Update'
+                            ]
+                            ?>
+                            @include('employees.avatar')
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
                     <div class="panel panel-default">
                         <div class="panel-heading">Edit</div>
 
@@ -21,6 +40,7 @@
                                             'phone'         => $employee->phone,
                                             'job'           => $employee->job,
                                             'department_id' => $employee->department_id,
+                                            'avatar'        => '',
                                     ],
                                     'url'      => route( 'ajax.employee.edit', $employee->id ),
                                     'method'   => 'POST',

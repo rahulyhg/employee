@@ -16,11 +16,16 @@ class Employee extends Model {
 		'photo',
 		'phone',
 		'job',
-		'department_id'
+		'department_id',
+		'avatar_id'
 	];
 
 	public function department() {
 		return $this->belongsTo( 'App\Department', 'department_id' );
+	}
+
+	public function avatar() {
+		return $this->belongsTo( 'App\Media', 'avatar_id' );
 	}
 
 	public function managers() {
