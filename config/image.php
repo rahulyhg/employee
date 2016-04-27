@@ -19,7 +19,7 @@ return array(
 
 	'size' => [
 		'employee'   => [ 400, 300 ],
-		'department' => [ 400, 300 ]
+		'department' => [ 370, 250 ]
 	]
 
 );
