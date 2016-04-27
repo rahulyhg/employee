@@ -80,11 +80,42 @@ class UserController extends Controller {
 		return redirect()->route( 'user.profile' )->withSuccess( 'Update profile successful!' );
 	}
 
-	public function changePassword() {
+	public function changePassword( Request $request ) {
+		$user = $request->user();
+		if ( $user->activated ) {
+			return redirect()->route( 'user.profile' );
+		}
+
 		return view( 'users.change-password' );
 	}
 
 	public function pathChangePassword( Request $request ) {
-		return $this->pathPassword( $request );
+		$user = $request->user();
+
+		if ( ! $user ) {
+			abort( 403 );
+		}
+
+		$input = $request->only( [
+			'password',
+			'password_confirmation'
+		] );
+
+		$validator = Validator::make( $input, [
+			'password'              => 'required|confirmed|min:8',
+			'password_confirmation' => 'required',
+		] );
+
+		if ( $validator->fails() ) {
+			$errors = $validator->errors()->getMessages();
+
+			return redirect()->route( 'user.changePassword' )->withErrors( $errors );
+		}
+
+		$update = $user->update( [
+			'password' => bcrypt( $input['password'] ),
+		] );
+
+		return redirect()->route( 'user.profile' )->withSuccess( 'Update password successful!' );
 	}
 }
