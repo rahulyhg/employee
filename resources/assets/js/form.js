@@ -49,7 +49,7 @@ jQuery(document).ready(function ($) {
                 }
             },
             error: function error(err) {
-                console.log(err);
+                alert('Some thing went wrong!');
             }
         });
     });
@@ -98,7 +98,7 @@ jQuery(document).ready(function ($) {
                 }
             },
             error: function error(err) {
-                console.log(err);
+                alert('Some thing went wrong!');
             }
         });
     });
@@ -147,7 +147,7 @@ jQuery(document).ready(function ($) {
                 }
             },
             error: function error(err) {
-                console.log(err);
+                alert('Some thing went wrong!');
             }
         });
     });
