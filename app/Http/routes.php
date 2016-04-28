@@ -186,3 +186,10 @@ Route::group( [ 'prefix' => 'uploads' ], function () {
 		},
 	] );
 } );
+
+Route::group( [ 'prefix' => 'search' ], function () {
+	Route::get( '', [
+		'as'   => 'search.employee',
+		'uses' => 'SearchController@searchEmployee',
+	] );
+} );

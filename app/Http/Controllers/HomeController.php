@@ -24,12 +24,13 @@ class HomeController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		$departments = Department::paginate( 6 );
-		$employees   = Employee::all();
+		$departments    = Department::paginate( 6 );
+		$employees      = Employee::all();
+		$all_department = Department::all();
 
 
 		return view( 'welcome', [
-			'departments' => $departments,
+			'departments' => $all_department,
 			'employees'   => $employees
 		] );
 	}

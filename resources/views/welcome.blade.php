@@ -12,7 +12,7 @@
                     <div class="col-md-6 col-md-offset-3">
                         <div class="top text-center">
                             <h2 class="text-uppercase">Welcome to <strong>Fries Team</strong></h2>
-                            <p>You can search by Over {{ $employees->count() }} Employees and {{ $departments->total() }} Departments</p>
+                            <p>You can search by Over {{ $employees->count() }} Employees and {{ $departments->count() }} Departments</p>
                         </div>
 
                         <div class="bottom">
@@ -21,10 +21,10 @@
                                     <div class="col-md-9 left">
                                         <input type="text" name="s" class="form-control" placeholder="Search employees">
                                         <select name="department" id="search">
-                                            <option value="0">Departments</option>
-                                            <option value="1">Phòng nhân sự</option>
-                                            <option value="2">Phòng marketing</option>
-                                            <option value="3">Phòng kế toán</option>
+                                            <option value="0">All departments</option>
+                                            @foreach($departments as $department)
+                                                <option value="{{ $department->id }}">{{ $department->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="col-md-3">
@@ -72,6 +72,9 @@
                             </div>
                         </div>
                     </div>
+                    @if ($index == 5)
+                        @break
+                    @endif
                 @endforeach
             </div>
 
