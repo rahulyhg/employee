@@ -8,7 +8,16 @@
     <div class="content">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-5">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Featured Image</div>
+
+                        <div class="panel-body">
+                            @include('departments.cover')
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
                     <div class="panel panel-default">
                         <div class="panel-heading">Edit</div>
 
@@ -16,8 +25,8 @@
                             <?php
                             $form = [
                                     'defaults' => [
-                                            'name'          => $department->name,
-                                            'phone'         => $department->phone,
+                                            'name'       => $department->name,
+                                            'phone'      => $department->phone,
                                             'manager_id' => $department->manager_id,
                                     ],
                                     'url'      => route( 'ajax.department.edit', $department->id ),

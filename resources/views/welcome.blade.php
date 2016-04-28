@@ -53,7 +53,11 @@
                         <div class="department">
                             <div class="img">
                                 <a href="{{ route('department.show', $department->id) }}" title="{{ $department->name }}">
-                                    <img src="{{ asset('assets/images/department_test.jpg') }}" alt="test" class="img-responsive">
+                                    @if ($department->cover)
+                                        <img class="img-responsive" src="{{ $department->get_url_featured() }}" alt="{{ $department->cover->get_name() }}">
+                                    @else
+                                        <img src="{{ asset('assets/images/department_test.jpg') }}" alt="Department featured default" class="img-responsive">
+                                    @endif
                                 </a>
                             </div>
 

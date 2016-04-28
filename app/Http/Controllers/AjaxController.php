@@ -88,6 +88,7 @@ class AjaxController extends Controller {
 
 				$name      = str_replace( '.' . $miniType, '', $name );
 				$name      = str_slug( $name, '_' );
+				$miniType  = strtolower( $miniType );
 				$name_full = $name . '.' . $miniType;
 
 				$size = $file->getSize();
@@ -103,16 +104,15 @@ class AjaxController extends Controller {
 				];
 
 				Storage::put( $path, file_get_contents( $file->getRealPath() ) );
-				
+
 				$size = config( 'image.size.employee' );
-				$img = Image::make( $path )->fit( $size[0], $size[1] );
+				$img  = Image::make( $path )->fit( $size[0], $size[1] );
 				$img->save( $path );
 
 				$media     = Media::create( $create_file );
 				$avatar_id = $media->id;
 			}
 		}
-
 
 		$input = $request->only( [
 			'name',
@@ -199,26 +199,56 @@ class AjaxController extends Controller {
 	 * @return mixed
 	 */
 	public function editDepartment( $id, Request $request ) {
+		$department = Department::find( $id );
+		if ( ! $department ) {
+			abort( 403 );
+		}
+
+		$cover_id = $department->cover_id;
+
+		if ( $request->hasFile( 'cover' ) ) {
+			$file = $request->file( 'cover' );
+
+			$name    = $file->getClientOriginalName();
+			$arr_str = explode( '.', $name );
+
+			if ( count( $arr_str ) > 1 ) {
+				$miniType = $arr_str[ count( $arr_str ) - 1 ];
+				$miniType = strtolower( $miniType );
+
+				$name          = str_replace( '.' . $miniType, '', $name );
+				$name          = str_slug( $name, '_' );
+				$name_full     = $name . '.' . $miniType;
+				$name_featured = 'featured.' . $miniType;
+
+				$size = $file->getSize();
+
+				$dir           = 'uploads/department/' . $id . '/';
+				$path_origin   = $dir . $name_full;
+				$path_featured = $dir . $name_featured;
+				$url           = url( $dir ) . '/' . $name_full;
+				$create_file   = [
+					'name' => $name,
+					'url'  => $url,
+					'size' => $size,
+					'type' => $miniType
+				];
+				$media         = Media::create( $create_file );
+				$cover_id      = $media->id;
+
+				Storage::put( $path_origin, file_get_contents( $file->getRealPath() ) );
+
+				$size = config( 'image.size.department' );
+				$img  = Image::make( $path_origin )->fit( $size[0], $size[1] );
+				$img->save( $path_featured );
+			}
+		}
 
 		$input = $request->only( [
 			'name',
 			'phone',
 			'manager_id'
 		] );
-
-		$response         = new stdClass();
-		$response->return = true;
-		$response->msg    = 'Updating successful department!';
-
-		$department = Department::find( $id );
-		if ( ! $department ) {
-			$response->return = false;
-			$response->msg    = 'Department not found.';
-			$response->errors = [ ];
-
-			return response()->json( $response );
-		}
-
 
 		$validator = Validator::make( $input, [
 			'name'  => 'required',
@@ -228,27 +258,13 @@ class AjaxController extends Controller {
 		if ( $validator->fails() ) {
 			$errors = $validator->errors()->getMessages();
 
-			$response->return = false;
-			$response->errors = $errors;
-
-			$response->msg = 'Some fields are not valid!';
-
-			return response()->json( $response );
+			return redirect()->route( 'department.edit', $department->id )->withErrors( $errors );
 		}
 
-		$update = $department->update( $input );
-		if ( $update ) {
-			$response->employee   = $department;
-			$response->http_refer = route( 'department.show', $department->id );
-		} else {
-			$response->return = false;
-			$response->errors = [ ];
-			$response->msg    = 'Some thing went wrong!';
+		$input['cover_id'] = $cover_id;
+		$update            = $department->update( $input );
 
-			return response()->json( $response );
-		}
-
-		return response()->json( $response );
+		return redirect()->route( 'department.show', $department->id );
 	}
 
 	/**

@@ -1,4 +1,4 @@
-<form action="{{ $form['url'] }}" method="{{ $form['method'] }}" class="form-department" enctype="multipart/form-data">
+<form action="{{ $form['url'] }}" method="{{ $form['method'] }}" class="form-department">
     {{ csrf_field() }}
 
     <div class="form-group" data-input="name">
@@ -10,12 +10,6 @@
     <div class="form-group" data-input="phone">
         <label for="phone">Phone</label>
         <input name="phone" id="phone" type="text" class="form-control" value="{{ $form['defaults']['phone'] }}" placeholder="Phone">
-        <div class="errors help-block"></div>
-    </div>
-
-    <div class="form-group" data-input="cover">
-        <label for="cover">Cover</label>
-        <input name="cover" id="cover" type="file" class="form-control">
         <div class="errors help-block"></div>
     </div>
 
@@ -31,6 +25,6 @@
     </div>
 
     <div class="form-group">
-        <button class="btn btn-primary" type="submit" id="editDepartment">{{ $form['button'] }}</button>
+        <button class="btn btn-primary" type="submit" id="addDepartment">{{ $form['button'] }}</button>
     </div>
 </form>

@@ -10,7 +10,13 @@
 @endsection
 
 @section('content')
-    <div class="heading-top f-table">
+    <?php
+    $style = '';
+    if ( $department->cover ) {
+        $style = 'background-image:url("' . $department->get_url_cover() . '")';
+    }
+    ?>
+    <div class="heading-top f-table" style="{{ $style }}">
         <div class="f-table-cell">
             <div class="container text-center">
                 <h1>{{ $department->name }}</h1>

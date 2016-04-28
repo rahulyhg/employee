@@ -13,7 +13,8 @@ class Department extends Model {
 	protected $fillable = [
 		'name',
 		'manager_id',
-		'phone'
+		'phone',
+		'cover_id',
 	];
 
 	public function employees() {
@@ -50,5 +51,25 @@ class Department extends Model {
 
 	public function cover() {
 		return $this->belongsTo( 'App\Media', 'cover_id' );
+	}
+
+	public function get_url_featured() {
+		if ( $this->cover ) {
+			$media = $this->cover;
+
+			return route( 'uploads.department' ) . '/' . $this->id . '/featured.' . $media->type;
+		}
+
+		return null;
+	}
+
+	public function get_url_cover() {
+		if ( $this->cover ) {
+			$media = $this->cover;
+
+			return $media->url;
+		}
+
+		return null;
 	}
 }
