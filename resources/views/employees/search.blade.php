@@ -7,8 +7,14 @@
 @section('content')
     <div class="container">
         <div class="f-heading text-center">
-            <h2 class="primary">Search result</h2>
-            <div class="secondary">Employees lorem ipsum ext sane uet.</div>
+            <h2 class="primary">Search results for: {{ $s }}</h2>
+            @if ($employees->count() == 0)
+                <div class="secondary">Nothing found</div>
+            @elseif($employees->count() == 1)
+                <div class="secondary">1 result</div>
+            @else
+                <div class="secondary">{{ $employees->count() }} results</div>
+            @endif
             <span class="line"></span>
         </div>
 

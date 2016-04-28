@@ -25,7 +25,8 @@ class SearchController extends Controller {
 		] );
 
 		return view( 'employees.search', [
-			'employees' => $employees
+			'employees' => $employees,
+			's'         => $s
 		] );
 	}
 }
