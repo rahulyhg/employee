@@ -9,6 +9,7 @@
 @endsection
 
 @section('content')
+    @include('partials.notification')
     <div class="content">
         <div class="container">
             <div class="row">
@@ -36,7 +37,7 @@
                                             'department_id' => $employee->department_id,
                                             'avatar'        => '',
                                     ],
-                                    'url'      => route( 'ajax.employee.edit', $employee->id ),
+                                    'url'      => route( 'employee.edit', $employee->id ),
                                     'method'   => 'POST',
                                     'button'   => 'Update'
                             ]
