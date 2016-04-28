@@ -4,6 +4,10 @@
     <title>Edit {{ $department->name }} - Departments</title>
 @endsection
 
+@section('navbar.left.admin')
+    <li><a href="{{ $department->permalink() }}" title="View {{ $department->name }}">View</a></li>
+@endsection
+
 @section('content')
     <div class="content">
         <div class="container">
