@@ -5,7 +5,9 @@
 @endsection
 
 @section('navbar.left.admin')
-    <li><a href="{{ $employee->permalink() }}" title="View {{ $employee->name }}">View</a></li>
+    <ul class="nav navbar-nav">
+        <li><a href="{{ $employee->permalink() }}" title="View {{ $employee->name }}">View</a></li>
+    </ul>
 @endsection
 
 @section('content')

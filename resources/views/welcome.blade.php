@@ -9,10 +9,10 @@
         <div class="f-table-cell">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
+                    <div class="col-md-10 col-md-offset-1">
                         <div class="top text-center">
                             <h2 class="text-uppercase">Welcome to <strong>Fries Team</strong></h2>
-                            <p>You can search by Over {{ $employees->count() }} Employees and {{ $departments->count() }} Departments</p>
+                            <p>You can search by over {{ $employees->count() }} Employees and {{ $departments->count() }} Departments</p>
                         </div>
 
                         <div class="bottom">

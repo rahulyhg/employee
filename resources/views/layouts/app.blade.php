@@ -32,16 +32,15 @@
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
-            <ul class="nav navbar-nav">
-                <!-- Authentication Links -->
-                @if (Auth::check())
-                    @yield('navbar.left.admin')
-                @else
-                    @yield('navbar.left.guest')
-                @endif
-            </ul>
 
-            <!-- Right Side Of Navbar -->
+            <!-- Authentication Links -->
+            @if (Auth::check())
+            @yield('navbar.left.admin')
+            @else
+            @yield('navbar.left.guest')
+            @endif
+
+                    <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <li class="{{ Ekko::isActiveRoute('employee.index') }}"><a href="{{ route('employee.index') }}">Employees</a></li>
                 <li class="{{ Ekko::isActiveRoute('department.index') }}"><a href="{{ route('department.index') }}">Departments</a></li>

@@ -7986,12 +7986,12 @@ a {
         height: 35px;
         background-color: #fff;
         top: 8px;
-        right: 170px; }
+        right: 250px; }
     .top-search .bottom .form-search select {
       position: absolute;
       top: 0;
       right: 15px;
-      width: 150px;
+      width: 230px;
       background-color: transparent;
       padding: 12px 5px;
       border: none;
@@ -8006,6 +8006,14 @@ a {
       color: #fff; }
     .top-search .bottom .form-search .btn {
       text-transform: uppercase; }
+
+@media all and (max-width: 768px) {
+  .top-search .top h2 strong {
+    display: block;
+    line-height: 2; }
+  .top-search .bottom .form-search .btn {
+    width: 100%;
+    margin-top: 20px; } }
 
 .department {
   border: 1px solid #eee;
@@ -8095,5 +8103,10 @@ a {
     padding-bottom: 10px; }
     .profile .table td:first-child {
       font-weight: 700; }
+
+@media all and (max-width: 768px) {
+  .back-to-top {
+    bottom: 20px;
+    right: 30px; } }
 
 /*# sourceMappingURL=style.css.map */

@@ -5,8 +5,10 @@
 @endsection
 
 @section('navbar.left.admin')
-    <li><a href="{{ $department->edit_link() }}" title="Edit {{ $department->name }}">Edit</a></li>
-    <li><a class="f_delete" href="{{ $department->delete_link() }}" title="Delete {{ $department->name }}">Delete</a></li>
+    <ul class="nav navbar-nav">
+        <li><a href="{{ $department->edit_link() }}" title="Edit {{ $department->name }}">Edit</a></li>
+        <li><a class="f_delete" href="{{ $department->delete_link() }}" title="Delete {{ $department->name }}">Delete</a></li>
+    </ul>
 @endsection
 
 @section('content')

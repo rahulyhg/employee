@@ -24,7 +24,7 @@
 					height: 35px;
 					background-color: #fff;
 					top: 8px;
-					right: 170px;
+					right: 250px;
 				}
 			}
 
@@ -32,7 +32,7 @@
 				position: absolute;
 				top: 0;
 				right: 15px;
-				width: 150px;
+				width: 230px;
 				background-color: transparent;
 				padding: 12px 5px;
 				border: none;
@@ -53,6 +53,28 @@
 
 			.btn {
 				text-transform: uppercase;
+			}
+		}
+	}
+}
+
+@media all and (max-width: 768px) {
+	.top-search {
+		.top {
+			h2 {
+				strong {
+					display: block;
+					line-height: 2;
+				}
+			}
+		}
+
+		.bottom {
+			.form-search {
+				.btn {
+					width: 100%;
+					margin-top: 20px;
+				}
 			}
 		}
 	}
