@@ -28,7 +28,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-3">
-                                        <button type="submit" class="btn btn-default f-button"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+                                        <button type="submit" class="btn btn-block btn-default f-button"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
                                     </div>
                                 </div>
                             </form>
