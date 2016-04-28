@@ -36,4 +36,4 @@ password: 123456
 ### Demo
 [http://dev.blogk.xyz/](http://dev.blogk.xyz/)
 Account: tutv.cntt@gmail.com
-Pass: 2HBolVDXIrRz
+Pass: *****
