@@ -8,7 +8,13 @@
 
 ## Config .env
 - Config databases
+
 - Config mail
+
+## Config storage
+- Create directory: storage/app/uploads
+
+- Symlink: storage/app/uploads -> public/uploads
 
 ------------------------
 
@@ -33,7 +39,9 @@ email: tutv95@gmail.com
 
 password: 123456
 
-### Demo
+## Demo
 [http://dev.blogk.xyz/](http://dev.blogk.xyz/)
+
 Account: tutv.cntt@gmail.com
+
 Pass: *****
