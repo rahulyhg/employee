@@ -76,7 +76,7 @@
     <div class="f-table-cell">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-sm-12 copy-right">Designed by Tu TV. Powered by Fries Team.</div>
+                <div class="col-md-6 col-sm-12 copy-right">Designed by Fries Team. Powered by UET Course.</div>
 
                 <div class="pull-right">
                     <a href="#" class="btn f-button back-to-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
