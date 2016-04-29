@@ -13,7 +13,7 @@
             @elseif($employees->count() == 1)
                 <div class="secondary">1 result</div>
             @else
-                <div class="secondary">{{ $employees->count() }} results</div>
+                <div class="secondary">{{ $employees->total() }} results</div>
             @endif
             <span class="line"></span>
         </div>
