@@ -81,11 +81,6 @@ class UserController extends Controller {
 	}
 
 	public function changePassword( Request $request ) {
-		$user = $request->user();
-		if ( $user->activated ) {
-			return redirect()->route( 'user.profile' );
-		}
-
 		return view( 'users.change-password' );
 	}
 

@@ -74,7 +74,7 @@ class AuthController extends Controller {
 		if ( ! $user->activated ) {
 			$user->update( [ 'activated' => 1 ] );//Active account
 
-			return redirect()->intended( route( 'user.changepassword' ) );
+			return redirect()->route( 'user.changePassword' );
 		}
 
 		return redirect()->intended( route( 'home' ) );

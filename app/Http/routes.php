@@ -134,7 +134,7 @@ Route::group( [ 'prefix' => 'users' ], function () {
 
 	Route::get( 'changepassword', [
 		'middleware' => 'auth',
-		'as'         => 'user.changepassword',
+		'as'         => 'user.changePassword',
 		'uses'       => 'UserController@changePassword',
 	] );
 
