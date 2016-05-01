@@ -10,13 +10,17 @@
 
 - laravelista/Ekko (https://github.com/laravelista/Ekko)
 
+- SendGrid - Mail service (https://sendgrid.com/)
+
 - Bootstrap v3.3.6 (http://getbootstrap.com)
+
+- CSS Preprocessor - SASS (http://sass-lang.com/)
 
 - jQuery v1.12.3 (https://jquery.com)
 
-- SendGrid - Mail service (https://sendgrid.com/)
+- jQuery.scrollTo 2.1.2 (https://github.com/flesler/jquery.scrollTo)
 
-- CSS Preprocessor - SASS (http://sass-lang.com/)
+
 
 # 3. Deploy
 
