@@ -7824,6 +7824,19 @@ button.close {
 .fa-percent:before {
   content: ""; }
 
+/* -------------------------------------------------------------
+  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library
+  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets
+
+  List of CSS3 Sass Mixins File to be @imported and @included as you need
+
+  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER
+  ENDING css files
+
+  note: All CSS3 Properties are being supported by Safari 5
+  more info: http://www.findmebyip.com/litmus/#css3-properties
+
+------------------------------------------------------------- */
 html {
   position: relative;
   min-height: 100%; }
@@ -7836,14 +7849,12 @@ body {
 a {
   color: #2e8ece; }
 
-.panel {
+.panel, .btn, .f-button, .alert {
+  -khtml-border-radius: 0;
   border-radius: 0; }
 
 .fa-btn {
   margin-right: 6px; }
-
-.btn {
-  border-radius: 0; }
 
 .f-table {
   display: table;
@@ -7875,14 +7886,13 @@ a {
     margin: auto;
     width: 30px;
     height: 1px;
-    background-color: #308ed5; }
+    background-color: #2e8ece; }
 
 .content {
   margin-top: 50px; }
 
 .f-button {
-  border-radius: 0;
-  background-color: #308ed5;
+  background-color: #2e8ece;
   border: none;
   color: #fff;
   padding: 15px 30px; }
@@ -7903,9 +7913,6 @@ a {
 .notifications {
   margin-top: 50px; }
 
-.alert {
-  border-radius: 0; }
-
 .has-errors .form-control {
   border-color: red; }
 
@@ -7925,10 +7932,10 @@ a {
     .navbar-static-top .navbar-nav li .dropdown-menu li a {
       text-transform: none; }
     .navbar-static-top .navbar-nav li.active a {
-      color: rgba(46, 142, 206, 0.51);
+      color: #2e8ece;
       background-color: transparent; }
       .navbar-static-top .navbar-nav li.active a:hover {
-        color: rgba(46, 142, 206, 0.51);
+        color: #2e8ece;
         background-color: transparent; }
     .navbar-static-top .navbar-nav li a {
       color: #333;
@@ -7958,6 +7965,7 @@ a {
 .paging-container {
   text-align: center; }
   .paging-container .pagination li span, .paging-container .pagination li a {
+    -khtml-border-radius: 0;
     border-radius: 0;
     padding: 9px 15px;
     font-size: 14px;
@@ -8061,7 +8069,7 @@ a {
   .box .icon {
     padding: 20px 0;
     font-size: 26px;
-    color: rgba(46, 142, 206, 0.51); }
+    color: #2e8ece; }
     .box .icon .cap {
       font-size: 14px;
       color: #999;
@@ -8111,7 +8119,7 @@ a {
       margin: 0;
       font-size: 14px;
       text-transform: uppercase;
-      color: rgba(46, 142, 206, 0.51); }
+      color: #2e8ece; }
     .profile .f-heading .line {
       margin: 0;
       background-color: #8b97a8;

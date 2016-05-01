@@ -13,16 +13,12 @@ a {
 	color: #2e8ece;
 }
 
-.panel {
-	border-radius: 0;
+.panel, .btn, .f-button, .alert {
+	@include border-radius(0);
 }
 
 .fa-btn {
 	margin-right: 6px;
-}
-
-.btn {
-	border-radius: 0;
 }
 
 .f-table {
@@ -62,7 +58,7 @@ a {
 		margin: auto;
 		width: 30px;
 		height: 1px;
-		background-color: #308ed5;
+		background-color: $primary_color;
 	}
 }
 
@@ -71,8 +67,7 @@ a {
 }
 
 .f-button {
-	border-radius: 0;
-	background-color: #308ed5;
+	background-color: $primary_color;
 	border: none;
 	color: #fff;
 	padding: 15px 30px;
@@ -98,8 +93,4 @@ a {
 
 .notifications {
 	margin-top: 50px;
-}
-
-.alert {
-	border-radius: 0;
 }
