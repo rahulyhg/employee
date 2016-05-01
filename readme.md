@@ -20,7 +20,7 @@
 
 # 3. Deploy
 
-## Requirements system
+## System requirements
 - PHP >= 5.5.9
 
 - OpenSSL PHP Extension
@@ -50,12 +50,12 @@
 - Symlink: `storage/app/uploads -> public/uploads`
 
 
-##Seeder
-###Run
+## Seeder
+### Run
 
 `php artisan db:seed`
 
-###Account admin:
+### Account admin:
 
 email: tutv95@gmail.com
 
