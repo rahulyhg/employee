@@ -6,6 +6,10 @@
 
 - Laravel Framework 5.2 (http://laravel.com/)
 
+- Intervention Image 2.x (http://image.intervention.io/)
+
+- laravelista/Ekko (https://github.com/laravelista/Ekko)
+
 - Bootstrap v3.3.6 (http://getbootstrap.com)
 
 - jQuery v1.12.3 (https://jquery.com)
@@ -15,6 +19,17 @@
 - CSS Preprocessor - SASS (http://sass-lang.com/)
 
 #Deploy
+
+## Requirements system
+- PHP >= 5.5.9
+
+- OpenSSL PHP Extension
+
+- PDO PHP Extension
+
+- Mbstring PHP Extension
+
+- Tokenizer PHP Extension
 
 ## Clone project
 `git clone https://github.com/tutv95/employee`
