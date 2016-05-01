@@ -1,8 +1,8 @@
-#Requirement
+# 1. Requirement
 
 [rikkeisoft/php-training/projects/employee-directory](https://github.com/rikkeisoft/php-training/blob/master/projects/employee-directory/01.Requirement.md)
 
-#Technologies
+# 2. Technologies
 
 - Laravel Framework 5.2 (http://laravel.com/)
 
@@ -18,7 +18,7 @@
 
 - CSS Preprocessor - SASS (http://sass-lang.com/)
 
-#Deploy
+# 3. Deploy
 
 ## Requirements system
 - PHP >= 5.5.9
@@ -50,7 +50,7 @@
 - Symlink: `storage/app/uploads -> public/uploads`
 
 
-#Seeder
+##Seeder
 ###Run
 
 `php artisan db:seed`
@@ -61,5 +61,5 @@ email: tutv95@gmail.com
 
 password: 123456
 
-# Demo
+4. Demo
 [http://dev.blogk.xyz/](http://dev.blogk.xyz/)
