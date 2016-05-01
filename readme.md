@@ -34,7 +34,7 @@
 ## Clone project
 `git clone https://github.com/tutv95/employee`
 
-## Install dependency package
+## Install dependencies
 `composer update`
 
 ## Config .env
@@ -55,11 +55,12 @@
 
 `php artisan db:seed`
 
-###Acount admin:
+###Account admin:
 
 email: tutv95@gmail.com
 
 password: 123456
 
-4. Demo
+# 4. Demo
+
 [http://dev.blogk.xyz/](http://dev.blogk.xyz/)
