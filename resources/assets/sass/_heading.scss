@@ -1,6 +1,6 @@
 .heading-top {
 	background-size: cover;
-	min-height: 600px;
+	min-height: 570px;
 	color: #fff;
 	background-image: url('../images/department_show.jpg');
 	position: relative;
@@ -15,5 +15,20 @@
 		bottom: 0;
 		background-color: rgba(46, 142, 206, 0.5);
 		z-index: 1;
+	}
+
+	.go-to-main {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		color: #fff;
+		font-size: 42px;
+		z-index: 2;
+		@include transform(translate(-50%, 0));
+		animation: moveDown 1.3s cubic-bezier(0.07, 0.5, 0.58, 1) infinite;
+
+		&:hover {
+			cursor: pointer;
+		}
 	}
 }

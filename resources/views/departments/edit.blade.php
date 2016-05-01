@@ -23,6 +23,17 @@
                             @include('departments.cover')
                         </div>
                     </div>
+
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">Danger Zone</div>
+
+                        <div class="panel-body">
+                            <div class="clearfix">
+                                <div class="pull-left">Delete this department</div>
+                                <a class="f_delete btn btn-danger pull-right" href="{{ $department->delete_link() }}" data-alert="Are you sure delete this department!">Delete</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-7">
                     <div class="panel panel-default">

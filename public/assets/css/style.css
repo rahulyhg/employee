@@ -7837,6 +7837,28 @@ button.close {
   more info: http://www.findmebyip.com/litmus/#css3-properties
 
 ------------------------------------------------------------- */
+@-webkit-keyframes moveDown {
+  0% {
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px); }
+  50% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0); }
+  100% {
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px); } }
+
+@keyframes moveDown {
+  0% {
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px); }
+  50% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0); }
+  100% {
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px); } }
+
 html {
   position: relative;
   min-height: 100%; }
@@ -7974,7 +7996,7 @@ a {
 
 .heading-top {
   background-size: cover;
-  min-height: 600px;
+  min-height: 570px;
   color: #fff;
   background-image: url("../images/department_show.jpg");
   position: relative; }
@@ -7988,6 +8010,20 @@ a {
     bottom: 0;
     background-color: rgba(46, 142, 206, 0.5);
     z-index: 1; }
+  .heading-top .go-to-main {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    color: #fff;
+    font-size: 42px;
+    z-index: 2;
+    -webkit-transform: translate(-50%, 0);
+    -khtml-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    -webkit-animation: moveDown 1.3s cubic-bezier(0.07, 0.5, 0.58, 1) infinite;
+    animation: moveDown 1.3s cubic-bezier(0.07, 0.5, 0.58, 1) infinite; }
+    .heading-top .go-to-main:hover {
+      cursor: pointer; }
 
 /* Home page */
 .top-search {

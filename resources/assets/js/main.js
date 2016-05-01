@@ -16,9 +16,13 @@ jQuery(document).ready(function ($) {
     $('.f_delete').on('click', function (e) {
         e.preventDefault();
 
-        var r = confirm("Are you sure!");
+        var r = confirm($(this).data('alert'));
         if (r == true) {
             location.href = $(this).attr('href');
         }
+    });
+
+    $('.go-to-main').on('click', function (e) {
+        $.scrollTo('#main', 200);
     });
 });

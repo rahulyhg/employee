@@ -23,6 +23,17 @@
                             @include('employees.avatar')
                         </div>
                     </div>
+
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">Danger Zone</div>
+
+                        <div class="panel-body">
+                            <div class="clearfix">
+                                <div class="pull-left">Delete this employee</div>
+                                <a class="f_delete btn btn-danger pull-right" href="{{ $employee->delete_link() }}" data-alert="Are you sure delete this employee!">Delete</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-7">
                     <div class="panel panel-default">
