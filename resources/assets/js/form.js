@@ -1,4 +1,8 @@
 jQuery(document).ready(function ($) {
+    function redirect(href) {
+        window.location.href = href;
+    }
+
     $('.form-group input').on('focus', function (e) {
         e.preventDefault();
 
@@ -9,6 +13,7 @@ jQuery(document).ready(function ($) {
         e.preventDefault();
         var $this_button = $(this);
         $this_button.attr('disabled', true);
+        $('.form-group .loading').show();
 
         var $form = $('.form-employee');
         var data = $form.serializeArray();
@@ -22,6 +27,7 @@ jQuery(document).ready(function ($) {
             dataType: 'json',
             complete: function () {
                 $this_button.attr('disabled', false);
+                $('.form-group .loading').hide();
             },
             success: function (res) {
                 if (!res.return) {
@@ -45,7 +51,9 @@ jQuery(document).ready(function ($) {
                         }
                     }
                 } else {
-                    window.location.href = res.http_refer;
+                    $this_button.attr('disabled', true);
+                    $('.form-group .notify-success').css('opacity', 1);
+                    setTimeout(redirect, 2000, res.http_refer);
                 }
             },
             error: function error(err) {
@@ -58,6 +66,7 @@ jQuery(document).ready(function ($) {
         e.preventDefault();
         var $this_button = $(this);
         $this_button.attr('disabled', true);
+        $('.form-group .loading').show();
 
         var $form = $('.form-department');
         var data = $form.serializeArray();
@@ -71,6 +80,7 @@ jQuery(document).ready(function ($) {
             dataType: 'json',
             complete: function () {
                 $this_button.attr('disabled', false);
+                $('.form-group .loading').hide();
             },
             success: function (res) {
                 if (!res.return) {
@@ -94,7 +104,9 @@ jQuery(document).ready(function ($) {
                         }
                     }
                 } else {
-                    window.location.href = res.http_refer;
+                    $this_button.attr('disabled', true);
+                    $('.form-group .notify-success').css('opacity', 1);
+                    setTimeout(redirect, 2000, res.http_refer);
                 }
             },
             error: function error(err) {
@@ -107,6 +119,7 @@ jQuery(document).ready(function ($) {
         e.preventDefault();
         var $this_button = $(this);
         $this_button.attr('disabled', true);
+        $('.form-group .loading').show();
 
         var $form = $('.form-user');
         var data = $form.serializeArray();
@@ -120,6 +133,7 @@ jQuery(document).ready(function ($) {
             dataType: 'json',
             complete: function () {
                 $this_button.attr('disabled', false);
+                $('.form-group .loading').hide();
             },
             success: function (res) {
                 $('.form-group .errors').html('');
@@ -143,7 +157,9 @@ jQuery(document).ready(function ($) {
                         }
                     }
                 } else {
-                    location.href = res.http_refer;
+                    $this_button.attr('disabled', true);
+                    $('.form-group .notify-success').css('opacity', 1);
+                    setTimeout(redirect, 2000, res.http_refer);
                 }
             },
             error: function error(err) {

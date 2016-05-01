@@ -26,5 +26,6 @@
 
     <div class="form-group">
         <button class="btn btn-primary" type="submit" id="addDepartment">{{ $form['button'] }}</button>
+        <div class="notify-success text-success">Create success!</div>
     </div>
 </form>

@@ -7,3 +7,19 @@
 .form-control {
 	border-radius: 0;
 }
+
+.form-group {
+	.loading {
+		font-size: 35px;
+		position: relative;
+		top: 8px;
+		margin-left: 10px;
+		color: $primary_color;
+		display: none;
+	}
+
+	.notify-success {
+		padding-top: 20px;
+		@include opacity(0);
+	}
+}

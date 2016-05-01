@@ -7941,6 +7941,25 @@ a {
 .form-control {
   border-radius: 0; }
 
+.form-group .loading {
+  font-size: 35px;
+  position: relative;
+  top: 8px;
+  margin-left: 10px;
+  color: #2e8ece;
+  display: none; }
+
+.form-group .notify-success {
+  padding-top: 20px;
+  filter: alpha(opacity=0);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  -webkit-opacity: 0;
+  -khtml-opacity: 0;
+  -moz-opacity: 0;
+  -ms-opacity: 0;
+  -o-opacity: 0;
+  opacity: 0; }
+
 .navbar-static-top {
   background-color: #fff;
   margin: 0; }
