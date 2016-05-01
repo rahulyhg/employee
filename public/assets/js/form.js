@@ -1,1 +1,161 @@
-!function r(e,t,o){function a(s,i){if(!t[s]){if(!e[s]){var f="function"==typeof require&&require;if(!i&&f)return f(s,!0);if(n)return n(s,!0);var l=new Error("Cannot find module '"+s+"'");throw l.code="MODULE_NOT_FOUND",l}var u=t[s]={exports:{}};e[s][0].call(u.exports,function(r){var t=e[s][1][r];return a(t?t:r)},u,u.exports,r,e,t,o)}return t[s].exports}for(var n="function"==typeof require&&require,s=0;s<o.length;s++)a(o[s]);return a}({1:[function(r,e,t){"use strict";jQuery(document).ready(function(r){r(".form-group input").on("focus",function(e){e.preventDefault(),r(this).parent().removeClass("has-errors")}),r("#addEmployee").on("click",function(e){e.preventDefault();var t=r(this);t.attr("disabled",!0);var o=r(".form-employee"),a=o.serializeArray(),n=o.attr("action"),s=o.attr("method");r.ajax({url:n,method:s,data:a,dataType:"json",complete:function(){t.attr("disabled",!1)},success:function(e){if(e["return"])window.location.href=e.http_refer;else{r(".form-group .errors").html(""),r(".form-group").removeClass("has-errors");for(var t=e.errors,o=Object.keys(t),a=0;a<o.length;a++){var n=o[a],s=r(".form-employee [data-input="+n+"]");s.addClass("has-errors");for(var i=s.find(".errors"),f=t[n],l=0;l<f.length;l++)i.append(f[l]),console.log(f[l])}}},error:function(r){alert("Some thing went wrong!")}})}),r("#addDepartment").on("click",function(e){e.preventDefault();var t=r(this);t.attr("disabled",!0);var o=r(".form-department"),a=o.serializeArray(),n=o.attr("action"),s=o.attr("method");r.ajax({url:n,method:s,data:a,dataType:"json",complete:function(){t.attr("disabled",!1)},success:function(e){if(e["return"])window.location.href=e.http_refer;else{r(".form-group .errors").html(""),r(".form-group").removeClass("has-errors");for(var t=e.errors,o=Object.keys(t),a=0;a<o.length;a++){var n=o[a],s=r(".form-department [data-input="+n+"]");s.addClass("has-errors");for(var i=s.find(".errors"),f=t[n],l=0;l<f.length;l++)i.append(f[l]),console.log(f[l])}}},error:function(r){alert("Some thing went wrong!")}})}),r("#addUser").on("click",function(e){e.preventDefault();var t=r(this);t.attr("disabled",!0);var o=r(".form-user"),a=o.serializeArray(),n=o.attr("action"),s=o.attr("method");r.ajax({url:n,method:s,data:a,dataType:"json",complete:function(){t.attr("disabled",!1)},success:function(e){if(r(".form-group .errors").html(""),r(".form-group").removeClass("has-errors"),e["return"])location.href=e.http_refer;else for(var t=e.errors,o=Object.keys(t),a=0;a<o.length;a++){var n=o[a],s=r(".form-user [data-input="+n+"]");s.addClass("has-errors");for(var i=s.find(".errors"),f=t[n],l=0;l<f.length;l++)i.append(f[l]),console.log(f[l])}},error:function(r){alert("Some thing went wrong!")}})})})},{}]},{},[1]);
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+'use strict';
+
+jQuery(document).ready(function ($) {
+    $('.form-group input').on('focus', function (e) {
+        e.preventDefault();
+
+        $(this).parent().removeClass('has-errors');
+    });
+
+    $('#addEmployee').on('click', function (e) {
+        e.preventDefault();
+        var $this_button = $(this);
+        $this_button.attr('disabled', true);
+
+        var $form = $('.form-employee');
+        var data = $form.serializeArray();
+        var url = $form.attr('action');
+        var method = $form.attr('method');
+
+        $.ajax({
+            url: url,
+            method: method,
+            data: data,
+            dataType: 'json',
+            complete: function complete() {
+                $this_button.attr('disabled', false);
+            },
+            success: function success(res) {
+                if (!res.return) {
+                    $('.form-group .errors').html('');
+                    $('.form-group').removeClass('has-errors');
+
+                    var errors = res.errors;
+                    var keys = Object.keys(errors);
+                    for (var i = 0; i < keys.length; i++) {
+
+                        var key = keys[i];
+                        var $container = $('.form-employee [data-input=' + key + ']');
+                        $container.addClass('has-errors');
+
+                        var $container_errors = $container.find('.errors');
+
+                        var arr = errors[key];
+                        for (var j = 0; j < arr.length; j++) {
+                            $container_errors.append(arr[j]);
+                            console.log(arr[j]);
+                        }
+                    }
+                } else {
+                    window.location.href = res.http_refer;
+                }
+            },
+            error: function error(err) {
+                alert('Some thing went wrong!');
+            }
+        });
+    });
+
+    $('#addDepartment').on('click', function (e) {
+        e.preventDefault();
+        var $this_button = $(this);
+        $this_button.attr('disabled', true);
+
+        var $form = $('.form-department');
+        var data = $form.serializeArray();
+        var url = $form.attr('action');
+        var method = $form.attr('method');
+
+        $.ajax({
+            url: url,
+            method: method,
+            data: data,
+            dataType: 'json',
+            complete: function complete() {
+                $this_button.attr('disabled', false);
+            },
+            success: function success(res) {
+                if (!res.return) {
+                    $('.form-group .errors').html('');
+                    $('.form-group').removeClass('has-errors');
+
+                    var errors = res.errors;
+                    var keys = Object.keys(errors);
+                    for (var i = 0; i < keys.length; i++) {
+
+                        var key = keys[i];
+                        var $container = $('.form-department [data-input=' + key + ']');
+                        $container.addClass('has-errors');
+
+                        var $container_errors = $container.find('.errors');
+
+                        var arr = errors[key];
+                        for (var j = 0; j < arr.length; j++) {
+                            $container_errors.append(arr[j]);
+                            console.log(arr[j]);
+                        }
+                    }
+                } else {
+                    window.location.href = res.http_refer;
+                }
+            },
+            error: function error(err) {
+                alert('Some thing went wrong!');
+            }
+        });
+    });
+
+    $('#addUser').on('click', function (e) {
+        e.preventDefault();
+        var $this_button = $(this);
+        $this_button.attr('disabled', true);
+
+        var $form = $('.form-user');
+        var data = $form.serializeArray();
+        var url = $form.attr('action');
+        var method = $form.attr('method');
+
+        $.ajax({
+            url: url,
+            method: method,
+            data: data,
+            dataType: 'json',
+            complete: function complete() {
+                $this_button.attr('disabled', false);
+            },
+            success: function success(res) {
+                $('.form-group .errors').html('');
+                $('.form-group').removeClass('has-errors');
+
+                if (!res.return) {
+                    var errors = res.errors;
+                    var keys = Object.keys(errors);
+                    for (var i = 0; i < keys.length; i++) {
+
+                        var key = keys[i];
+                        var $container = $('.form-user [data-input=' + key + ']');
+                        $container.addClass('has-errors');
+
+                        var $container_errors = $container.find('.errors');
+
+                        var arr = errors[key];
+                        for (var j = 0; j < arr.length; j++) {
+                            $container_errors.append(arr[j]);
+                            console.log(arr[j]);
+                        }
+                    }
+                } else {
+                    location.href = res.http_refer;
+                }
+            },
+            error: function error(err) {
+                alert('Some thing went wrong!');
+            }
+        });
+    });
+});
+
+},{}]},{},[1]);
+
+//# sourceMappingURL=form.js.map

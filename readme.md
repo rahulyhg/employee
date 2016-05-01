@@ -16,17 +16,6 @@
 
 - Symlink: storage/app/uploads -> public/uploads
 
-------------------------
-
-php artisan optimize
-
-php artisan config:cache
-
-php artisan route:cache
-
-php artisan view:clear
-
-php artisan config:clear
 
 #Seeder
 ###Run
@@ -39,9 +28,5 @@ email: tutv95@gmail.com
 
 password: 123456
 
-## Demo
+# Demo
 [http://dev.blogk.xyz/](http://dev.blogk.xyz/)
-
-Account: tutv.cntt@gmail.com
-
-Pass: *****
