@@ -52,8 +52,10 @@
 
 @media (max-width: 992px) {
 	.navbar-static-top {
-		.navbar-right {
-			padding-top: 25px;
+		.navbar-nav {
+			&.navbar-right {
+				padding-top: 25px;
+			}
 		}
 	}
 }
